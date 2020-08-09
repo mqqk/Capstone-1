@@ -1,0 +1,9 @@
+
+
+ori
+Originating Agency Identification- a nine character identifier assigned to an agency. Agencies must identify their ORI Number on the requisition forms in order to receive fingerprint supplies and training aids.
+
+NIBRS
+
+UCR
+

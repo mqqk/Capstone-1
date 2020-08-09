@@ -1,1 +1,36 @@
 # Capstone-1
+
+
+Technical Requirements
+
+Implementation details are left entirely up to you, but at a minimum your app must meet the following requirements:
+
+
+Use Fetch to asynchronously load data from one or more APIs
+
+Use jQuery's DOM traversal and manipulation functionality to display the data from the API to the user in an interesting way
+
+Use jQuery's event listening capabilities to respond to user actions
+
+
+Friendly advice
+
+Discuss your designs with your mentor before starting to code. Your mentor will be able to help you properly scope (and de-scope!) your project and will have other valuable input that will help you as you go along.
+
+Be disciplined with using Git and GitHub and try to commit and push your work up to GitHub each time you complete a feature or screen in the app. This will ensure you don't lose your work if your computer crashes. It's also your chance to demonstrate to prospective employers that you use good Git discipline. Use short, descriptive commit messages that will make sense. You can read up on what makes a good commit message here.
+
+Strike a balance between code quality and speed of development. On the one hand, you want the final version of this project to have excellent code quality, but on the other, you want to get the prototype out the door as quickly as possible in order to get user feedback. As you work on your MVP, err towards speed of development. Once you get the first version out the door, you can iterate on code quality, based on feedback from your mentor. To be clear, we're not telling you "Go write bad code!". But we don't want you to suffer from a worry that is common to many beginners: "My code works, but is it the right way?" For a functional prototype, the right way is whatever gets your MVP in the hands of your users (sooner rather than later). Expect to spend about 6-10 hours of development time implementing your MVP, and then release. As always, if you get stuck don't hesitate to reach out for help from your mentor or fellow students.
+
+
+
+-----------------------------
+
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("https://api.usa.gov/crime/fbi/sapi/api/states?api_key=Bn7LmPVraonlr8vnBhH7e1dh7vvjckNmsTDWnf6M", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
