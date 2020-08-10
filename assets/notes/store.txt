@@ -1,6 +1,5 @@
-
-
-const STORE=['aggravated assault',
+const STORE[
+        'aggravated assault',
         'all-other-offenses',
         'arson',
         'burglary',
@@ -49,6 +48,7 @@ const STORE=['aggravated assault',
         'weapons',
 ]
 
-//console.log(STORE[0]);
-const apiKey='Bn7LmPVraonlr8vnBhH7e1dh7vvjckNmsTDWnf6M';
 
+
+                        <label>Ending Year</label>
+                        <input id="endYear" placeholder="year between 1960-2018"></input><br>

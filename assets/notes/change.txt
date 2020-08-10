@@ -1,0 +1,98 @@
+//take results and pull the values from the keys
+//turn values into array
+//assign new array to STORE values
+function arrayValues(responseJson){
+    //console.log('running arrayValues');
+    console.log(responseJson.results);
+    //need to change from array to object before parsing the values
+    const objArray={...responseJson.results};       
+    const valueArray=Object.values(objArray[0]);
+    //console.log(valueArray);
+
+    //for loop that names each value to variable name that can be placed into store
+    
+    for(let i=0;i<valueArray.length;i++){
+        VALUE[i]=valueArray[i];
+        
+        
+
+    }
+    storeLoad(VALUE);
+    //console.log(VALUE);
+    arrayFinal(finalStore);
+    //addStore(VALUE)
+
+}
+
+function arrayFinal(finalStore){
+    //console.log(finalStore);
+    const finalObj={...finalStore[0]}
+    //console.log(finalObj);
+    const finalArray=Object.entries(finalObj);
+    //console.log(finalArray[0]);
+    let results=[]
+    //console.log(finalArray[0]);
+    for(let i=0;i<finalArray.length;i++){
+    
+    results.push(finalArray[i].slice(-1))
+    
+    }//console.log(results);
+    displayResults(results)
+}
+
+
+
+$('#js-results').append(`
+        <ul> State and Year
+        <li>${myJSON[i]}</li>
+        </ul>
+    `)
+
+        const myJSON = JSON.stringify(responseJson.results[0]);
+    console.log(myJSON);
+    const arJSON = myJSON.split(",");
+    //console.log(typeof(arJSON));
+    console.log(arJSON);
+
+
+
+    <select id="categories" name="users" onchange="showUser(this.value)">
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+                          <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                            <div id="myDropdown" class="dropdown-content">
+                              <a href="#home">Home</a>
+                              <a href="#about">About</a>
+                              <a href="#contact">Contact</a>
+                            </div>
+                        </div><br>
+                        <form id="js-categories">
+                            <select id="categories" name="users">
+                            <option value="">Select a category:</option>
+                            <div class="menu">
+                            <option value="movie">Movie</option>
+                            <option value="musik">Musik</option>
+                            <option value="books">Books</option>
+                            <option value="images">Images</option></div>
+                            <button form="js-categories" type="submit" formaction="#add-category">Add</button>
+                            </select>
+                            
+                        </form>
+                        <div id="js-add"></div> 

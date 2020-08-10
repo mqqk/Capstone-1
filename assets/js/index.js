@@ -29,11 +29,17 @@ function keyTerms(){
 }
 
 function tools(){
-    console.log('tools running');
+    //console.log('tools running');
+    
+
+    //anytime a search is made, this function hears it...
+
+
     $('#loadOut').append(`
     <div class="appendedBox">
     <ul> Search Tools
-        <li>list the following parameters currently available on this platform</li>
+        <li>Currently, the app only allows the user to select a State and Year to view the reported crimes to the FBI from that state.</li>
+        <li>The plan is to expand the search criterion and add another search query to compare states.</li>
     </ul>
     </div>
     `)
@@ -41,11 +47,12 @@ function tools(){
 
 
 //going to need a function that pulls from the an appended point probably on the other JS (search.js), max of 10?
-function recentSearches(){
+function recentSearches(state,year){
     console.log('recentSearches is running');
+
     $('#loadOut').append(`
     <div class="appendedBox">
-        <p>going to need a function that pulls from the an appended point probably on the other JS (search.js), max of 10?</p>
+        <li>State Searched:${state} Year Searched:${year}</li>
     </div>
     `)
 }
