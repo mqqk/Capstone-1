@@ -1,6 +1,6 @@
 FBI Crime Data App
 
-https://api.data.gov/ 
+https://crime-data-explorer.fr.cloud.gov/api
 
 The Crime Data Explorer Base API URL is https://api.usa.gov/crime/fbi/sapi/
 api key = Bn7LmPVraonlr8vnBhH7e1dh7vvjckNmsTDWnf6M

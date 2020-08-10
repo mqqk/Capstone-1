@@ -63,7 +63,7 @@
     
     
   }
-  .explainBox{
+  .searchBox{
     display:flex;
     flex-direction:column;
     width:15em;
@@ -125,7 +125,8 @@
     padding:.25em .25em;
   }
   h3{
-    font-size:24px;
+    font: size 21px;
+    text-align:center;
     color:#fff;
   }
   .contact{
@@ -141,7 +142,7 @@
   }
 
   form textarea{
-    height: 10em;
+    height:10em;
     width:100%;
     color:#000;
     font-size:16px;
