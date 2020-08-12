@@ -20,26 +20,16 @@
         </header>
 
         <main>
-            <section class="mainBox">
-                <div class="col">
+            <section id="mainBox" class="mainBox">
+                <div id="js-load" class="col">
                     <div class="searchBox">
                         <h2>Crime Stats</h2>
-                        <h3>Choose Your State and Year</h3>
-                        <form id="searchForm">
-                            <label>Enter State</label>
-                            <input id="stateAbbrev" placeholder="e.g., NC or CA" required> </input><br>
-                            <label>Enter Year</label>
-                            <input id="year" placeholder="year between 1960-2018"></input><br>
-                            <div id="js-add"></div>                    
-                        
-                        </form>
-                        <span><button type="submit" id="js-submit">Submit</button></span>
-                    </div>
-                    
-                </div>
-                <div id="js-search" class="resultsBox">
-                    
-                </div>
+                        <h3>Choose your Search</h3>
+                        <ul>Search By:
+                            <li id="stateSearch"><a href="#">State</a></li>
+                            <li id="citySearch"><a href="#">City</a></li>                        
+                            <li id="regionSearch"><a href="#">Region</a></li>
+                        </ul>
                 
                 
             </section>
@@ -61,6 +51,7 @@
 
         </main>
 
+          
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="assets/js/store.js"></script>

@@ -64,7 +64,7 @@ function recentSearches(state,year){
 
 
 function loadUp(){
-    console.log("let's go");
+    //console.log("let's go");
     
     $('#keyTerms').click(event =>{
         $('#loadOut').empty();

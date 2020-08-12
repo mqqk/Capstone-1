@@ -96,3 +96,47 @@ $('#js-results').append(`
                             
                         </form>
                         <div id="js-add"></div> 
+
+-------------------------------------------------
+                <div class="col">
+                    <div class="searchBox">
+                        <h2>Crime Stats</h2>
+                        <h3>Choose Your State and Year</h3>
+                        <form id="searchForm">
+                            <label>Enter State</label>
+                            <input id="stateAbbrev" placeholder="e.g., NC or CA" required> </input><br>
+                            <label>Enter Year</label>
+                            <input id="year" placeholder="year between 1960-2018"></input><br>
+                            <select id="ddselect" onchange="ddlselect()">
+                                <option>--Select Crime--</option>
+                                <option>Drug Possession</option>
+                                <option>Drug Sale/Distribution</option>
+                                <option>Larceny</option>
+                                </select>
+                            <input type="text" id="txtvalue"/>
+                        </form>
+                        <span><button type="submit" id="js-submit">Submit</button></span>
+                    </div>
+                    
+                </div>
+                <div id="js-search" class="resultsBox">
+                    
+                </div>
+
+
+                -----------------
+
+drop down stuff
+
+          <select id="ddselect" >
+              <option>--Select Crime--</option>
+              <option>Drug Possession</option>
+              <option>Drug Sale/Distribution</option>
+              <option>Larceny</option>
+              </select>    
+          <button type="button" id="addBox">Add</button>
+
+
+
+
+          
