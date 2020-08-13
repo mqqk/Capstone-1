@@ -38,8 +38,9 @@ function tools(){
     $('#loadOut').append(`
     <div class="appendedBox">
     <ul> Search Tools
-        <li>Currently, the app only allows the user to select a State and Year to view the reported crimes to the FBI from that state.</li>
-        <li>The plan is to expand the search criterion and add another search query to compare states.</li>
+        <li>There are two search options. The first is an arrest total by each state in a given year for particular crimes. You can query a second city which will populate another column for comparison. </li>
+        <li>The second tool will provide a summary of crimes reported by each jurisdiction and whether these crimes were cleared.</li>
+        <li> There are more search tools planned.</li>
     </ul>
     </div>
     `)

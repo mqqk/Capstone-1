@@ -133,7 +133,10 @@
 
   ul.badge li {list-style-image: url('#imageOfBadge');}
 
-
+  ul{
+    font-size:18px;
+    text-transform:capitalize;
+  }
   li {
     font-size:14px;
     color:#000;
