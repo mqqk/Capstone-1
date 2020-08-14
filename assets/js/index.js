@@ -18,14 +18,62 @@ function keyTerms(){
     //console.log(HI);
     $('#loadOut').append(`
     <div class="appendedBox">
-    <ul> Key Terms List
-        <li>NIBRS - National Incident-Based Reporting System - captures detail on each single crime incident—as well as on separate offenses within the same incident—including information on victims, known offenders, relationships between victims and offenders, arrestees, and property involved in crimes. </li>
-        <li>ORI - Originating Reporting Agency Identifier - Every agency that reports to the UCR is assigned a unique ORI. </li>
-        <li>UCR - Uniform Crime Reporting - program file containing 18,725 records, one for each law enforcement agency in the Nation that had ever reported to the UCR as of 1996. </li>
-        <li>NCIC - National Crime Information Center -Established in 1967, NCIC is a nationwide computerized system that provides law enforcement with ready data about wanted persons,  stolen property, and other information.
+    <ul id="keylist"> Key Terms List
+        <li id="js-nibrs"><u>NIBRS</li>
+        <li id="js-ucr">UCR</li>
+        <li id="js-ori">ORI</li>
+        <li id="js-ncic">NCIC</li></u>
     </ul>
+    <div id="definition"></div>
     </div>
     `)
+    $('#js-nibrs').on('click',function(e){
+        $('#keylist').hide();
+        $('#definition').append(`<p>
+        NIBRS</p> <br><p>National Incident-Based Reporting System</p><br><p> captures detail on each single crime incident—as well as on separate offenses within the same incident</p><br><p>This includs information on victims, known offenders, relationships between victims and offenders, arrestees, and property involved in crimes.</p>
+        <button type='submit' id='backButt'>Back</button>`)
+        $('#backButt').on('click',function(e){
+            $('#definition').empty();
+            $('#keylist').show();
+        })
+
+    })
+
+    $('#js-ori').on('click',function(e){
+        $('#keylist').hide();
+        $('#definition').append(`<p>
+        ORI</p><br><p> - Originating Reporting Agency Identifier</p><br><p> - Every agency that reports to the UCR is assigned a unique ORI.</p>
+        <button type='submit' id='backButt'>Back</button>`)
+        $('#backButt').on('click',function(e){
+            $('#definition').empty();
+            $('#keylist').show();
+        })
+
+    })
+
+    $('#js-ucr').on('click',function(e){
+        $('#keylist').hide();
+        $('#definition').append(`<p>
+        UCR</p><br><p> - Uniform Crime Reporting</p><br><p> - program file containing 18,725 records, one for each law enforcement agency in the Nation that had ever reported to the UCR as of 1996.</p>
+        <button type='submit' id='backButt'>Back</button>`)
+        $('#backButt').on('click',function(e){
+            $('#definition').empty();
+            $('#keylist').show();
+        })
+
+    })
+
+    $('#js-ncic').on('click',function(e){
+        $('#keylist').hide();
+        $('#definition').append(`<p>
+        NCIC</p><br><p> - National Crime Information Center</p><br><p> -Established in 1967, NCIC is a nationwide computerized system that provides law enforcement with ready data about wanted persons,  stolen property, and other information.</p>
+        <button type='submit' id='backButt'>Back</button>`)
+        $('#backButt').on('click',function(e){
+            $('#definition').empty();
+            $('#keylist').show();
+        })
+
+    })
 }
 
 function tools(){
@@ -39,7 +87,7 @@ function tools(){
     <div class="appendedBox">
     <ul> Search Tools
         <li>There are two search options. The first is an arrest total by each state in a given year for particular crimes. You can query a second city which will populate another column for comparison. </li>
-        <li>The second tool will provide a summary of crimes reported by each jurisdiction and whether these crimes were cleared.</li>
+        <li>The second tool provides a summary of crimes reported by each jurisdiction and whether these crimes were cleared.</li>
         <li> There are more search tools planned.</li>
     </ul>
     </div>
