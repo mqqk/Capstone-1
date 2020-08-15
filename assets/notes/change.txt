@@ -136,6 +136,13 @@ drop down stuff
               </select>    
           <button type="button" id="addBox">Add</button>
 
+----------------------------------------------------
+08/14/2020
+<li>NIBRS - National Incident-Based Reporting System - captures detail on each single crime incident—as well as on separate offenses within the same incident—including information on victims, known offenders, relationships between victims and offenders, arrestees, and property involved in crimes. </li>
+        <li>ORI - Originating Reporting Agency Identifier - Every agency that reports to the UCR is assigned a unique ORI. </li>
+        <li>UCR - Uniform Crime Reporting - program file containing 18,725 records, one for each law enforcement agency in the Nation that had ever reported to the UCR as of 1996. </li>
+        <li>NCIC - National Crime Information Center -Established in 1967, NCIC is a nationwide computerized system that provides law enforcement with ready data about wanted persons,  stolen property, and other information.
+
 
 
 
