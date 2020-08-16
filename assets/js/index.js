@@ -17,7 +17,7 @@
 function keyTerms(){
     //console.log(HI);
     $('#loadOut').append(`
-    <div class="appendedBox">
+    <div>
     <ul id="keylist"> Key Terms List
         <li id="js-nibrs"><u>NIBRS</li>
         <li id="js-ucr">UCR</li>
@@ -30,7 +30,7 @@ function keyTerms(){
     $('#js-nibrs').on('click',function(e){
         $('#keylist').hide();
         $('#definition').append(`<p>
-        NIBRS</p> <br><p>National Incident-Based Reporting System</p><br><p> captures detail on each single crime incident—as well as on separate offenses within the same incident</p><br><p>This includs information on victims, known offenders, relationships between victims and offenders, arrestees, and property involved in crimes.</p>
+        NIBRS</p> <br><p>-National Incident-Based Reporting System</p><br><p> -captures detail on each single crime incident—as well as on separate offenses within the same incident</p><br><p>-This includs information on victims, known offenders, relationships between victims and offenders, arrestees, and property involved in crimes.</p>
         <button type='submit' id='backButt'>Back</button>`)
         $('#backButt').on('click',function(e){
             $('#definition').empty();

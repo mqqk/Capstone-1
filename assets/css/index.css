@@ -104,7 +104,7 @@
     display:flex;
     flex-direction:column;
     text-align:left;
-    width:15em;
+    width:33%;
     height:auto;
     font-size:16px;
     background-image:url(../images/purpleback.png);
@@ -112,7 +112,7 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:#000;
     opacity: .9;
-    margin-left:.5em;
+    margin-left:0em;
     
   }
 
@@ -233,7 +233,7 @@
 
 
 
-  @media all and (max-width: 768px) {
+  @media all and (max-width: 1024px) {
     body {
       color:lime;
     }
@@ -462,6 +462,7 @@
           font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
           color:#fff;
           margin-right:0.25em;
+          padding-right: .05em;
         }
         
       
