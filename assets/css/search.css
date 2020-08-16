@@ -41,6 +41,9 @@
     background-position:center;
     opacity: .9;
   }
+  p{
+    color:red;
+  }
 
 
   header a{
@@ -72,13 +75,13 @@
   .searchBox{
     display:flex;
     flex-direction:column;
-    width:15em;
+    width:13em;
     height:15em;
     background-image:url(../images/purpleback.png);
     background-size:cover;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-left:2em;
-    margin-top:.5em;
+    margin-left:1em;
+    margin-top:0;
     opacity: .90;
   
   }
@@ -109,7 +112,7 @@
     width:auto;
     height:auto;
     background-color: grey;
-    margin-left:2em;
+    margin-left:.5em;
     color:#000;
   }
 
@@ -124,9 +127,7 @@
     padding:.5em .5em;
     
   }
-  main p{
-    font-size:18px;
-  }
+
 
   .mainBox{
     display:flex;
@@ -138,26 +139,28 @@
     background-image:url('#crimepic');
   }
   h2{
-    font-size:24px;
+    font-size:22px;
     text-align:center;
     color:#000;
     padding-bottom:.5em;
   }
 
   h4{
+    font-size:18px;
     text-transform:uppercase;
-    text-align:center;
+    text-align:left;
+    padding-left: 1em;
   }
 
   ul.badge li {list-style-image: url('#imageOfBadge');}
 
   ul{
-    font-size:18px;
+    font-size:14px;
     margin-left:.55em;
     text-transform:capitalize;
   }
   li {
-    font-size:14px;
+    font-size:12px;
     color:#000;
     margin-left:1em;
     padding:.5em .5em;
@@ -183,8 +186,8 @@
   }
 
   form label{
-    font-size:20px;
-    color:rgb(248, 247, 247);
+    font-size:16px;
+    color:#000;
   }
 
   form button{
@@ -197,7 +200,7 @@
     
     font-size:14px;
     margin:.25em .25em;
-    margin-left:14em;
+    margin-left:5em;
     padding:.25em .25em;
     width:5em;
   }
@@ -215,11 +218,10 @@
     margin-right:20em;
   }
   .contact{
-    display:block;
+    display:flex;
     flex-direction:column;
     width:100%;
     margin-top:.5em;
-    margin-right:auto;
     text-align: center;
     padding:.5em 0;    
     height:10.5em;
@@ -239,17 +241,13 @@
   .rightSideBox{
     font-family: Arial, Helvetica, sans-serif;
     color:#000;
-    background-blend-mode: overlay;
     width:auto;
     height:50px;
     margin-top:2.5em;
-    margin-right:28em;
-    font-size:16px;
+    margin-right:24em;
+    font-size:20px;
   }
 
-  .contactText{
-    font-size:10px;
-  }
 
 
   /* dropbox style */
@@ -305,21 +303,34 @@
 
 
 
-  @media all and (max-width: 768px) {
+  @media all and (min-width: 1024px) {
     body {
       color:lime;
     }
+    header{
+      height:auto;
+      width:25em;
+      margin-left: 10em;
+    }
 
     h1{
-      font-size:24px;
+      font-size:18px;
+      margin-right:15em;}
+
+    form label{
+      font-size:14px;
     }
-    header p{
+
+    .butt{
+      font-size: 12px;
+    }
+
+    h4{
       font-size:16px;
-      color:#fff;
-      text-align:center;
-      margin-right:12em;
-      margin-top:7em;
-      
+      color:blue;
+    }
+    ul{
+      font-size: 12px;
     }
   
     header a{
@@ -329,152 +340,70 @@
       padding-right:5em;
   
     }
+    .contact{
+      height:auto;
+      width:25em;
+      text-align:left;
+      
+    }
+
+    p{
+      color:blue;
+    }
+
+    .rightSideBox{
+      font-size: 10px;
+      margin-right:0;
+    }
   }
 
   @media all and (max-width: 425px) {
 
+    header{
+      height:auto;
+    }
+
     h1{
-      font-size:20px;
-      margin-right:5em;
-    }
-    .header{
-      height:6em;
-      width:auto;
-      background-position: center;
-      background-size: contain;
-    }
-    header p{
+      font-size:18px;
+      margin-right:15em;
+
+    form label{
       font-size:14px;
-      color:#fff;
-      text-align:center;
-      margin-right:6.5em;
-      margin-top:3em;
-      
     }
+
+    .butt{
+      font-size: 12px;
+    }
+
+    h4{
+      font-size:16px;
+    }
+    ul{
+      font-size: 12px;
+    }
+    main p{
+      font-size:5px;
+      color:blue;
+    }
+  
   
     header a{
       display: inline-flex;
       justify-content: space-around;
       color:#fff;
-      padding-right:2em;
+      padding-right:5em;
   
     }
-    .mainBox{
-      display:flex;
-      color:#000;
-      flex-direction:row;
-      justify-content: space-between;
-      width:100%;
-      background-image:url('#crimepic');
-    }
-
-    .explainBox{
-      width:33%;
-      height:auto;
-      background-image:url(../images/purpleback.png);
-      background-size:cover;
-      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      color:#000;
-      margin-right:0.25em;
-        }
-
-        .navBox{
-          display:flex;
-          flex-direction:column;
-          width:20%;
-          height:auto;
-          background-image:url(../images/purpleback.png);
-          background-size:cover;
-          font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-          color:#fff;
-          margin-right:0.25em;
-        }
-        
-      
-        .appendedBox{
-          display:flex;
-          flex-direction:column;
-          text-align:left;
-          width:33%;
-          height:15em;
-          background-image:url(../images/purpleback.png);
-          background-size:cover;
-          font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-          color:#000;
-          
-          
-        }
-    h2{
-      font-size:14px;
-      text-align:center;
-      color:#000;
-      padding:0 0;
-    }
-    li {
-      font-size:12px;
-      color:#000;
-      margin-left:1em;
-      padding:.5em .5em;
-    }
-    main p{
-      font-size:10px;
-      margin-left:0.5em;
-    }
-    main a{
-      font-size:10px;
-      margin-top:.5em;
-    }
-
-    .rightSideBox{
-      font-size:10px;
-    }
-    .appendedBox{
-      display:flex;
-      flex-direction:column;
-      text-align:left;
-      width:15em;
-      height:auto;
-      background-image:url(../images/purpleback.png);
-      background-size:cover;
-      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      color:#000;
-      font-size:14px;
-      
-      
-    }
     .contact{
-      display:flex;
-      flex-direction:column;
-      color:#000;
-      width:100%;
-      height:5em;
-      margin-top:.5em;
-      text-align: left;
-      padding:.5em .5em;    
-      background-image:url(../images/contact.png);
-      background-repeat:no-repeat;
-      background-position: top;
-      
-    }
-    .rightSideBox{
-      font-family: Arial, Helvetica, sans-serif;
-      color:#000;
-      
-      width:auto;
       height:auto;
-      margin-top:0;
-      margin-right:0;
-      margin:left;
-      font-size:16px;
-    }
-    h3{
-      font-size:14px;
-      color:#000;
-      margin:left;
+      width:25em;
+      
     }
 
-
-
+    .rightSideBox{
+      font-size: 2px;
+      margin-right:1em;
+    }
   }
 
   @media all and (max-width: 375px) {
@@ -568,7 +497,6 @@
     }
     main a{
       font-size:10px;
-      color:lime;
       margin-top:.5em;
     }
 

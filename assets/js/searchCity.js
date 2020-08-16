@@ -12,7 +12,7 @@ function formatQueryParams(params) {
 
 
 
-  function getCityReturn(ori,year,clickCityCount){
+  function getCityReturn(city,ori,year,clickCityCount){
     
     //console.log("getReturn started")
    
@@ -36,12 +36,12 @@ function formatQueryParams(params) {
     
     fetch(url, requestOptions)
       .then(response => {
-      if(response.ok){return response.json();
-      }
-      throw new Error(response.statusText);
+      if(response.status===200){return response.json();
+      }else
+      alert("Invalid Department Name or Year")
       })
-      .then(responseJson => cityValues(responseJson,clickCityCount))
-      .catch(error => console.log('error', error));
+      .then(responseJson => cityValues(city,ori,year,responseJson,clickCityCount))
+      //.catch(error => console.log('error', error));
       //return alert("incorrect abbreviation")
     
 }
@@ -49,7 +49,7 @@ function formatQueryParams(params) {
 
 
 //this function now parses the response values to pair with the key
-function cityValues(responseJson,clickCityCount){
+function cityValues(city,ori,year,responseJson,clickCityCount){
     console.log('running arrayValues');
     console.log(responseJson.results);
     let results=responseJson.results;
@@ -57,6 +57,13 @@ function cityValues(responseJson,clickCityCount){
     let crimes=[];
     let reported=[];
     let solved=[];
+    let jsResults='js-results'+clickCityCount
+
+        
+    $('#mainBox').append(`
+        <div id="${jsResults}" class="resultsBox">
+        <h4>${city} ${year}</h4>            </div>
+    `)
 
     for(let i=0;i<results.length;i++){
         crimes.push(results[i].offense);
@@ -116,12 +123,23 @@ function displayCityResults(crimes,reported,solved,clickCityCount){
 
 
 let clickCityCount=0;
+
+function checkClicks(clickCityCount){
+  if(clickCityCount>2){
+    alert('Only two queries should be displayed. Press Reset to make a new search');
+  }
+}
 function citySearchLoad(){
     //console.log(STORE[0]);
     console.log("searchLoad starts"); 
       let city="";
       let year="";
       console.log("hi");
+      //checkClicks(clickCityCount);
+    
+      if(clickCityCount>3){return alert('Only two queries should be displayed. Press Reset to make a new search')}
+
+
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
         clickCityCount+=1;
@@ -133,13 +151,7 @@ function citySearchLoad(){
         console.log(year);
         
       console.log(clickCityCount);
-        let jsResults='js-results'+clickCityCount
 
-        
-        $('#mainBox').append(`
-            <div id="${jsResults}" class="resultsBox">
-            <h4>${city} ${year}</h4>            </div>
-        `)
         //recentSearches(city,year);        
         $('#cityOri').val('');
         $('#year').val('');//beginning year
@@ -148,7 +160,7 @@ function citySearchLoad(){
         console.log("hi  "+ori);
         console.log(year);
         
-        getCityReturn(ori,year,clickCityCount);
+        getCityReturn(city,ori,year,clickCityCount);
     })
     
 
@@ -207,6 +219,8 @@ function resetCity(){
   $('#resetButt').on('click',function(e){
     event.preventDefault();
     $('#mainBox').empty();
+    clickCityCount=0;
+    
     citySearch();
     resetCity();
     backUp();
@@ -218,7 +232,7 @@ function backUp(){
     $('#js-back').on('click',function(e){
       $('#mainBox').empty();
       $('#js-load').show();
-    })
+    }) 
   }
   
 

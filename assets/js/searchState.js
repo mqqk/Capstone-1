@@ -30,12 +30,15 @@ function getStateReturn(state, year, clickStateCount){
     
     fetch(url, requestOptions)
       .then(response => {
-      if(response.ok){return response.json();
+        console.log(response) 
+      if(response.status===200){return response.json();
       }
-      throw new Error(response.statusText);
+      else
+      alert('Invalid State or Year')
+      //throw new Error(response.statusText);
       })
-      .then(responseJson => stateValues(responseJson,clickStateCount))
-      .catch(error => console.log('error', error));
+      .then(responseJson => stateValues(state,year,responseJson,clickStateCount))
+      //.catch(error => alert('error', error));
       //return alert("incorrect abbreviation")
     
 }
@@ -43,9 +46,16 @@ function getStateReturn(state, year, clickStateCount){
 
 
 //this function now parses the response values to pair with the key
-function stateValues(responseJson,clickStateCount){
+function stateValues(state,year, responseJson,clickStateCount){
     console.log('running arrayValues');
     console.log(responseJson.data);
+    let jsResults='js-results'+clickStateCount
+
+        
+        $('#mainBox').append(`
+            <div id="${jsResults}" class="resultsBox">
+            <h4>${state} ${year}</h4>            </div>
+        `)
     const values=[];
     const keys=[];
     console.log("hi");
@@ -107,13 +117,7 @@ function stateSearchLoad(){
         console.log(year)
         
       console.log(clickStateCount);
-        let jsResults='js-results'+clickStateCount
-
         
-        $('#mainBox').append(`
-            <div id="${jsResults}" class="resultsBox">
-            <h4>${state} ${year}</h4>            </div>
-        `)
         //recentSearches(state,year);        
         $('#stateAbbrev').val('');
         $('#year').val('');//beginning year
