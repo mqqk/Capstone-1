@@ -39,7 +39,7 @@
     background-image:url(../images/goldgavel.png) ;
     background-repeat:no-repeat;
     background-position:center;
-    opacity: .9;
+    
 
   }
 
@@ -83,7 +83,8 @@
     color:#000;
     margin-left: .5em;
     padding-right:.5em;
-    opacity: .9;
+    padding-left:.5em;
+    margin-right:.5em;
     font-size:16px;
   }
 
@@ -95,31 +96,28 @@
     background-image:url(../images/purpleback.png);
     background-size:cover;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:#fff;
     padding-right:.5em;
-    opacity: .9;
+    margin-right:.5em;
+    
+  }
+  main a{
+    font-size:18px;
   }
 
   .appendedBox{
     display:flex;
     flex-direction:column;
     text-align:left;
-    width:33%;
+    width:50%;
     height:auto;
-    font-size:16px;
     background-image:url(../images/purpleback.png);
     background-size:cover;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:#000;
-    opacity: .9;
+    padding-left:.5em;
+    font-size:18px;
     margin-left:0em;
     
-  }
-
-  main a{
-    font-size:16px;
-    padding-top:1em;
-    padding-left:1em;
   }
 
   .mainBox{
@@ -127,7 +125,8 @@
     color:#000;
     flex-direction:row;
     justify-content:space-evenly;
-    width:100%;
+    width:75%;
+    height:auto;
     margin-right:auto;
     margin-left:auto;
     background-image:url('#crimepic');
@@ -146,7 +145,7 @@
     font-size:18px;
     color:#000;
     margin-left:1em;
-    padding:.5em .5em;
+    margin-top: 1em;
   }
 
   a:link {
@@ -195,7 +194,7 @@
     background-image:url(../images/contact.png);
     background-repeat:no-repeat;
     background-position: top;
-    opacity: .9;
+    
     
   }
 
@@ -256,6 +255,52 @@
       color:#fff;
       padding-right:5em;
   
+    }
+    .appendedBox{
+      width:70%;
+    }
+
+    .explainBox{
+      margin-right: .5em;
+    }
+    .navBox{
+      margin-right: .5em;
+    }
+  }
+  
+  @media all and (max-width: 768px) {
+    body {
+      color:lime;
+    }
+
+    h1{
+      font-size:24px;
+    }
+    header p{
+      font-size:16px;
+      color:#fff;
+      text-align:center;
+      margin-right:12em;
+      margin-top:7em;
+      
+    }
+  
+    header a{
+      display: inline-flex;
+      justify-content: space-around;
+      color:#fff;
+      padding-right:5em;
+  
+    }
+    .appendedBox{
+      width:70%;
+    }
+
+    .explainBox{
+      margin-right: .5em;
+    }
+    .navBox{
+      margin-right: .5em;
     }
   }
 
@@ -449,7 +494,7 @@
       background-size:cover;
       font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       color:#000;
-      margin-right:0.25em;
+      padding-right: .05em;
         }
 
         .navBox{

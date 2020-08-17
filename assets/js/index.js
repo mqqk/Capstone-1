@@ -19,10 +19,10 @@ function keyTerms(){
     $('#loadOut').append(`
     <div>
     <ul id="keylist"> Key Terms List
-        <li id="js-nibrs"><u>NIBRS</li>
-        <li id="js-ucr">UCR</li>
-        <li id="js-ori">ORI</li>
-        <li id="js-ncic">NCIC</li></u>
+        <li><a id="js-nibrs" href="#">NIBRS</a>  </li>
+        <li><a id="js-ucr" href="#">UCR</a></li>
+        <li> <a id="js-ori" href="#">ORI</a></li>
+        <li> <a id="js-ncic" href="#">NCIC</a></li>
     </ul>
     <div id="definition"></div>
     </div>
@@ -84,11 +84,11 @@ function tools(){
 
 
     $('#loadOut').append(`
-    <div class="appendedBox">
+    <div>
     <ul> Search Tools
-        <li>There are two search options. The first is an arrest total by each state in a given year for particular crimes. You can query a second city which will populate another column for comparison. </li>
-        <li>The second tool provides a summary of crimes reported by each jurisdiction and whether these crimes were cleared.</li>
-        <li> There are more search tools planned.</li>
+        <li>-There are two search options. The first is an arrest total by each state in a given year for particular crimes. You can query a second city which will populate another column for comparison. </li>
+        <li>-The second tool provides a summary of crimes reported by each jurisdiction and whether these crimes were cleared.</li>
+        <li> -There are more search tools planned.</li>
     </ul>
     </div>
     `)

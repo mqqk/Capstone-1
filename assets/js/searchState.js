@@ -26,11 +26,11 @@ function getStateReturn(state, year, clickStateCount){
     const queryString=formatQueryParams(params)
     const url=baseUrl+apiKey;    
 
-   //console.log(url);
+   console.log(url);
     
     fetch(url, requestOptions)
       .then(response => {
-        console.log(response) 
+        //console.log(response) 
       if(response.status===200){return response.json();
       }
       else
@@ -46,27 +46,37 @@ function getStateReturn(state, year, clickStateCount){
 
 
 //this function now parses the response values to pair with the key
-function stateValues(state,year, responseJson,clickStateCount){
-    console.log('running arrayValues');
-    console.log(responseJson.data);
-    let jsResults='js-results'+clickStateCount
+function stateValues(state,year,responseJson,clickStateCount){
+    console.log('running stateValues');
+    //console.log(responseJson.data);
+    //let jsResults='js-results'+clickStateCount
 
         
-        $('#mainBox').append(`
-            <div id="${jsResults}" class="resultsBox">
-            <h4>${state} ${year}</h4>            </div>
-        `)
+
     const values=[];
     const keys=[];
-    console.log("hi");
-    console.log(keys);
+    //console.log("hi");
+    //console.log(keys);
     for(let i=0;i<responseJson.data.length;i++){
       keys.push(responseJson.data[i].key);
       values.push(responseJson.data[i].value);
     
     }
-    console.log('bye');
-    console.log(keys);
+
+    let jsResults='js-results'+clickStateCount
+
+        
+    $('#mainBox').append(`
+        <div id="${jsResults}" class="resultsBox">
+        <h4>${state} ${year}</h4>            </div>
+    `)
+
+
+
+
+
+    //console.log('bye');
+    //console.log(keys);
     displayStateResults(keys,values,clickStateCount);
 }
 
@@ -84,29 +94,34 @@ function stateValues(state,year, responseJson,clickStateCount){
 
 //combines the STORE with the parsed values
 function displayStateResults(keys,values,clickStateCount){
-    console.log('displayStateResults')
-    //console.log(STORE[0]+'-'+values[0]);
-    let jsResults='#js-results'+clickStateCount;
-    console.log(jsResults);
-    let i=0;
-    for(;i<keys.length;i++){
-      //console.log(keys[i],values[i]);
-    $(jsResults).append(`  
-        
-      <li>${keys[i]}-${values[i]}</li> 
-    `)}    
-    $(stateSearchLoad)
+  console.log('displayStateResults')
+  //console.log(STORE[0]+'-'+values[0]);
+  let jsResults='#js-results'+clickStateCount;
+  console.log(jsResults);
+  let i=0;
+  for(;i<keys.length;i++){
+    //console.log(keys[i],values[i]);
+  $(jsResults).append(`  
+      
+    <li>${keys[i]}-${values[i]}</li> 
+  `)}    
+  $(loadSearch)
 }
+
+
+
+
+
+
 
 
 
 let clickStateCount=0;
 function stateSearchLoad(){
-    //console.log(STORE[0]);
-    console.log("searchLoad starts"); 
+      //console.log("searchLoad starts"); 
       let state="";
       let year="";
-      console.log("hi");
+      //console.log("hi");
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
         clickStateCount+=1;
@@ -114,9 +129,11 @@ function stateSearchLoad(){
         //$('#js-search').empty();        
          state=$('#stateAbbrev').val();
          year=$('#year').val();//beginning year
-        console.log(year)
+        //console.log(year)
+
+
         
-      console.log(clickStateCount);
+      //console.log(clickStateCount);
         
         //recentSearches(state,year);        
         $('#stateAbbrev').val('');
@@ -133,7 +150,7 @@ function stateSearchLoad(){
 
 //generate a stateSearch box for user to input search parameters
 function stateSearch(){
-  console.log("stateSearch started");
+  //console.log("stateSearch started");
   $('#js-load').hide();
   $('#mainBox').append(`
   <div class="col">
@@ -180,8 +197,8 @@ function backUp(){
 }
 
 
-function whichTool(){
-  console.log("let's go");
+function loadSearch(){
+  //console.log("let's go");
   $("#stateSearch").click(event =>{
     stateSearch();
     resetState();
@@ -189,8 +206,6 @@ function whichTool(){
   })
 }
 
-function loadSearchTools(){
-  whichTool();
-}
 
-$(loadSearchTools());
+
+$(loadSearch());

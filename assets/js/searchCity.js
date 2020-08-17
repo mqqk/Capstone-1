@@ -117,7 +117,7 @@ function displayCityResults(crimes,reported,solved,clickCityCount){
       <li>Solved-${solved[i]}</li>
       </ul>
     `)}
-    $(citySearchLoad)
+    $(loadSearch)
 }
 
 
@@ -134,6 +134,7 @@ function citySearchLoad(){
     console.log("searchLoad starts"); 
       let city="";
       let year="";
+      //let ori="";
       console.log("hi");
       //checkClicks(clickCityCount);
     
@@ -156,8 +157,9 @@ function citySearchLoad(){
         $('#cityOri').val('');
         $('#year').val('');//beginning year
         //$('#endYear').val('');//end year
-        displayOri(cityInfo,city);
-        console.log("hi  "+ori);
+        let ori=""
+        ori= displayOri(ori,cityInfo,city);
+        console.log("hi" +ori);
         console.log(year);
         
         getCityReturn(city,ori,year,clickCityCount);
@@ -166,19 +168,21 @@ function citySearchLoad(){
 
 }
 
-    let ori="";
-    let region="";
-function displayOri(cityInfo,agency){
+    
+    
+function displayOri(ori,cityInfo,agency){
     console.log("getting ori");
     //console.log(cityInfo[0]);
     console.log(agency);
     //console.log(cityInfo[0].agency_name);
-
+    let region="";
     let city="";
 
     for(let i=0;i<cityInfo.length;i++){
-      if(agency===cityInfo[i].agency_name){ori=cityInfo[i].ori}
-    }return (ori);
+      if(agency===cityInfo[i].agency_name){return ori=cityInfo[i].ori}
+    }
+    
+    
    
 };
 
@@ -237,8 +241,8 @@ function backUp(){
   
 
 
-function whichTool(){
-  console.log("let's go");
+function loadSearch(){
+  //console.log("let's go");
   $("#citySearch").click(event =>{
     citySearch();
     resetCity();
@@ -246,8 +250,5 @@ function whichTool(){
   })
 }
 
-function loadSearchTools(){
-  whichTool();
-}
 
-$(loadSearchTools());
+$(loadSearch());
