@@ -26,7 +26,7 @@ function getStateReturn(state, year, clickStateCount){
     const queryString=formatQueryParams(params)
     const url=baseUrl+apiKey;    
 
-   console.log(url);
+   //console.log(url);
     
     fetch(url, requestOptions)
       .then(response => {
@@ -47,7 +47,7 @@ function getStateReturn(state, year, clickStateCount){
 
 //this function now parses the response values to pair with the key
 function stateValues(state,year,responseJson,clickStateCount){
-    console.log('running stateValues');
+    //console.log('running stateValues');
     //console.log(responseJson.data);
     //let jsResults='js-results'+clickStateCount
 
@@ -94,10 +94,10 @@ function stateValues(state,year,responseJson,clickStateCount){
 
 //combines the STORE with the parsed values
 function displayStateResults(keys,values,clickStateCount){
-  console.log('displayStateResults')
-  //console.log(STORE[0]+'-'+values[0]);
+  //console.log('displayStateResults')
+  console.log(clickStateCount);
   let jsResults='#js-results'+clickStateCount;
-  console.log(jsResults);
+  //console.log(jsResults);
   let i=0;
   for(;i<keys.length;i++){
     //console.log(keys[i],values[i]);
@@ -121,10 +121,12 @@ function stateSearchLoad(){
       //console.log("searchLoad starts"); 
       let state="";
       let year="";
-      //console.log("hi");
+      
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
         clickStateCount+=1;
+        console.log(clickStateCount);
+      if(clickStateCount>2){return alert('reset your query before performing another submission')}
         //console.log("eventStarted");
         //$('#js-search').empty();        
          state=$('#stateAbbrev').val();
@@ -182,6 +184,7 @@ function resetState(){
   $('#resetButt').on('click',function(e){
     event.preventDefault();
     $('#mainBox').empty();
+    clickStateCount=0;
     stateSearch();
     resetState();
     backUp();

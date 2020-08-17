@@ -138,12 +138,14 @@ function citySearchLoad(){
       console.log("hi");
       //checkClicks(clickCityCount);
     
-      if(clickCityCount>3){return alert('Only two queries should be displayed. Press Reset to make a new search')}
+      
 
 
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
+
         clickCityCount+=1;
+        if(clickCityCount>2){return alert('Only two queries should be displayed. Press Reset to make a new search')}
         //console.log("eventStarted");
         //$('#js-search').empty();        
         city=$('#cityOri').val();
@@ -179,10 +181,10 @@ function displayOri(ori,cityInfo,agency){
     let city="";
 
     for(let i=0;i<cityInfo.length;i++){
-      if(agency===cityInfo[i].agency_name){return ori=cityInfo[i].ori}
+      if(agency===cityInfo[i].agency_name){ori=cityInfo[i].ori}
     }
-    
-    
+    console.log(ori);
+    return (ori);
    
 };
 
