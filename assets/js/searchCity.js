@@ -34,7 +34,7 @@ function formatQueryParams(params) {
         .then(response => {
           if(response.status===200){return response.json();
           }else
-          alert("Invalid Department Name or Year")
+          alert("Invalid Department Name or Year:Important - Press RESET to Continue")
           })
           //run cityValues with the carried over values of city,ori,year, and clickCount to assist in HTML building
         .then(responseJson => cityValues(city,ori,year,responseJson,clickCityCount))
@@ -46,8 +46,7 @@ function formatQueryParams(params) {
 
 //this function now parses the response values to pair with the key
 function cityValues(city,ori,year,responseJson,clickCityCount){
-    console.log('running arrayValues');
-    console.log(responseJson.results);
+
     let results=responseJson.results;
     let keys=[];
     let crimes=[];
@@ -80,11 +79,9 @@ function cityValues(city,ori,year,responseJson,clickCityCount){
 
 //for loop to assign the correctly iterated values to their appropriate place in the HTML
 function displayCityResults(crimes,reported,solved,clickCityCount){
-    console.log('displayCityResults')
-    //console.log(STORE[0]+'-'+values[0]);
+
     let jsResults='#js-results'+clickCityCount;
-    //console.log(jsResults);
-    //console.log(offense);
+
     for(let i=0;i<crimes.length;i++){
 
 
@@ -95,7 +92,7 @@ function displayCityResults(crimes,reported,solved,clickCityCount){
       <li>Solved-${solved[i]}</li>
       </ul>
     `)}
-    $(loadSearch)
+    
 }
 
 
@@ -153,6 +150,7 @@ function displayOri(ori,cityInfo,agency){
 //generate a citySearch box for user to input search parameters
 function citySearch(){
   
+  
   $('#js-load').hide();
   $('#mainBox').append(`
   <div class="col">
@@ -204,8 +202,9 @@ function backUp(){
   
 
 //ready function
-function loadSearch(){
-  //console.log("let's go");
+function loadCitySearch(){
+ 
+  
   $("#citySearch").click(event =>{
     citySearch();
     resetCity();
@@ -214,4 +213,4 @@ function loadSearch(){
 }
 
 
-$(loadSearch());
+$(loadCitySearch());

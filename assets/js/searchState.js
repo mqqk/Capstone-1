@@ -31,7 +31,7 @@ function getStateReturn(state, year, clickStateCount){
         if(response.status===200){return response.json();
         }
         else
-        alert('Invalid State or Year')
+        {alert('Invalid State or Year:Important - Press RESET to Continue')}{clickStateCount--}
       })
       //run stateValues with the carried over values of state,year, and clickCount to assist in HTML building
       .then(responseJson => stateValues(state,year,responseJson,clickStateCount))
@@ -76,11 +76,11 @@ function displayStateResults(keys,values,clickStateCount){
       
       <li>${keys[i]}-${values[i]}</li> 
     `)}    
-  $(loadSearch)
+ 
 }
 
 //clickStateCount will keep track of the submission button so that the user is restricted to two queries and also create the appropriate html each time
-let clickStateCount=0;
+var clickStateCount=0;
 
 //listens for click and takes the input 
 function stateSearchLoad(){
@@ -89,6 +89,7 @@ function stateSearchLoad(){
       
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
+        console.log(clickStateCount);
         clickStateCount+=1;
         
         //create a stop if the clickCount is above 2
@@ -159,7 +160,8 @@ function backUp(){
 }
 
 //ready function
-function loadSearch(){
+function loadStateSearch(){
+  
   
   $("#stateSearch").click(event =>{
     stateSearch();
@@ -170,4 +172,4 @@ function loadSearch(){
 
 
 
-$(loadSearch());
+$(loadStateSearch());

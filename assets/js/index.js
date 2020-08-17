@@ -8,11 +8,11 @@
 function keyTerms(){
     $('#loadOut').append(`
     <div>
-    <ul id="keylist"> Key Terms List
-        <li><a id="js-nibrs" href="#">NIBRS</a>  </li>
-        <li><a id="js-ucr" href="#">UCR</a></li>
-        <li> <a id="js-ori" href="#">ORI</a></li>
-        <li> <a id="js-ncic" href="#">NCIC</a></li>
+    <ul id="keylist"><h2> Key Terms List</h2>
+        <li><a class="contactFont" id="js-nibrs" href="#">NIBRS</a>  </li>
+        <li><a class="contactFont" id="js-ucr" href="#">UCR</a></li>
+        <li> <a class="contactFont" id="js-ori" href="#">ORI</a></li>
+        <li> <a class="contactFont" id="js-ncic" href="#">NCIC</a></li>
     </ul>
     <div id="definition"></div>
     </div>
