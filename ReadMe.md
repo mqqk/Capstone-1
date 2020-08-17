@@ -1,36 +1,30 @@
-# Capstone-1
+# **FBI API with Crime Stats from States and Jurisdictions** #
+
+## Summary ##
+
+This application is designed to allow the user easier access to aggregated statistics from the Federal Bureau of Investigations (FBI) public application program interface (API). While the FBI statistics appear accurate and mostly complete, they rely on consistent and accurate reporting from individual agencies. For this reason, some queries may not produce the desired results.
+
+-<a href="https://mqqk.github.io/FBI-Crime-API/">FBI API</a> link to the live application.
+
+The landing page details the goals of the application, provides some key terms that might be useful, and advises which search tool are currently available.
+
+<img src="assets/images/indexHtmlSnap.png" ></img>
 
 
-Technical Requirements
+Currently, there are two search queries available:
 
-Implementation details are left entirely up to you, but at a minimum your app must meet the following requirements:
+-State Arrest by Year for aggregate crimes
+-Jurisdiction by Year for summarized crimes reported/solved
 
+<img src="assets/images/searchHtml.png"></img>
 
-Use Fetch to asynchronously load data from one or more APIs
+The format, at this time, is optimized for two queries simultaneously in each category. The goal is to give the search tool more versatility and present the data in a more compact, easy to digest format.
 
-Use jQuery's DOM traversal and manipulation functionality to display the data from the API to the user in an interesting way
+The data requests populate into separate columns. Unfortunately, the FBI's response is often times unsorted, but at least appears complete. The application does ** NOT ** at this time sort or organize, but the ultimate plan is to provides this functionality.
 
-Use jQuery's event listening capabilities to respond to user actions
+<img src="assets/images/searchTool.png"></img>
 
+## This Application was Constructed with ##
 
-Friendly advice
+-(HTML/CSS/JavaScript/jQuery) 
 
-Discuss your designs with your mentor before starting to code. Your mentor will be able to help you properly scope (and de-scope!) your project and will have other valuable input that will help you as you go along.
-
-Be disciplined with using Git and GitHub and try to commit and push your work up to GitHub each time you complete a feature or screen in the app. This will ensure you don't lose your work if your computer crashes. It's also your chance to demonstrate to prospective employers that you use good Git discipline. Use short, descriptive commit messages that will make sense. You can read up on what makes a good commit message here.
-
-Strike a balance between code quality and speed of development. On the one hand, you want the final version of this project to have excellent code quality, but on the other, you want to get the prototype out the door as quickly as possible in order to get user feedback. As you work on your MVP, err towards speed of development. Once you get the first version out the door, you can iterate on code quality, based on feedback from your mentor. To be clear, we're not telling you "Go write bad code!". But we don't want you to suffer from a worry that is common to many beginners: "My code works, but is it the right way?" For a functional prototype, the right way is whatever gets your MVP in the hands of your users (sooner rather than later). Expect to spend about 6-10 hours of development time implementing your MVP, and then release. As always, if you get stuck don't hesitate to reach out for help from your mentor or fellow students.
-
-
-
------------------------------
-
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("https://api.usa.gov/crime/fbi/sapi/api/states?api_key=Bn7LmPVraonlr8vnBhH7e1dh7vvjckNmsTDWnf6M", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
