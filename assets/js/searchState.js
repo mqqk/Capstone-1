@@ -1,15 +1,15 @@
 'use strict'
 //function to ensure parameters return as a string
+//function is unused in this iteration of the application b/c the parameters inputed are strings at this time
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
   }
 
-function getStateReturn(state, year, clickStateCount){
-    
-    //console.log("getReturn started")
-   
+//take the state, year, and clickCount
+//use the state and year to build the URL for the fetch
+function getStateReturn(state, year, clickStateCount){   
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -24,22 +24,17 @@ function getStateReturn(state, year, clickStateCount){
     const baseUrl='https://api.usa.gov/crime/fbi/sapi/api/arrest/states/offense/'+state+'/all/'+year+'/'+year+'?api_key='
 
     const queryString=formatQueryParams(params)
-    const url=baseUrl+apiKey;    
+    const url=baseUrl+apiKey;
 
-   //console.log(url);
-    
     fetch(url, requestOptions)
-      .then(response => {
-        //console.log(response) 
-      if(response.status===200){return response.json();
-      }
-      else
-      alert('Invalid State or Year')
-      //throw new Error(response.statusText);
+      .then(response => {       
+        if(response.status===200){return response.json();
+        }
+        else
+        alert('Invalid State or Year')
       })
+      //run stateValues with the carried over values of state,year, and clickCount to assist in HTML building
       .then(responseJson => stateValues(state,year,responseJson,clickStateCount))
-      //.catch(error => alert('error', error));
-      //return alert("incorrect abbreviation")
     
 }
 
@@ -47,112 +42,74 @@ function getStateReturn(state, year, clickStateCount){
 
 //this function now parses the response values to pair with the key
 function stateValues(state,year,responseJson,clickStateCount){
-    //console.log('running stateValues');
-    //console.log(responseJson.data);
-    //let jsResults='js-results'+clickStateCount
 
-        
-
-    const values=[];
-    const keys=[];
-    //console.log("hi");
-    //console.log(keys);
+    const values=[];//parsed values from the response
+    const keys=[];//parsed key from the response
+  
     for(let i=0;i<responseJson.data.length;i++){
       keys.push(responseJson.data[i].key);
       values.push(responseJson.data[i].value);
-    
     }
 
-    let jsResults='js-results'+clickStateCount
-
+    //create the html to append the data
+    //the clickStateCount is used here to ensure separate <div>'s are created for each query
+    let jsResults='js-results'+clickStateCount;
         
     $('#mainBox').append(`
         <div id="${jsResults}" class="resultsBox">
         <h4>${state} ${year}</h4>            </div>
     `)
 
-
-
-
-
-    //console.log('bye');
-    //console.log(keys);
+    //run the next function with the parsed keys and values
     displayStateResults(keys,values,clickStateCount);
 }
 
-//dropbox function
-//will populate text box with options for crimes to search
-//function ddlselect(){
-  //const d=document.getElementById("ddselect");
-  //console.log(d);
- // const displaytext=d.options[d.selectedIndex].text;
-  //console.log(displaytext);
-  
-  //document.getElementById("txtvalue").value=displaytext;
-//}
-
-
-//combines the STORE with the parsed values
+//aggregate the results into column for under the created HTML from above
 function displayStateResults(keys,values,clickStateCount){
-  //console.log('displayStateResults')
-  console.log(clickStateCount);
+  
   let jsResults='#js-results'+clickStateCount;
-  //console.log(jsResults);
+  
   let i=0;
   for(;i<keys.length;i++){
-    //console.log(keys[i],values[i]);
-  $(jsResults).append(`  
+  
+    $(jsResults).append(`  
       
-    <li>${keys[i]}-${values[i]}</li> 
-  `)}    
+      <li>${keys[i]}-${values[i]}</li> 
+    `)}    
   $(loadSearch)
 }
 
-
-
-
-
-
-
-
-
+//clickStateCount will keep track of the submission button so that the user is restricted to two queries and also create the appropriate html each time
 let clickStateCount=0;
+
+//listens for click and takes the input 
 function stateSearchLoad(){
-      //console.log("searchLoad starts"); 
       let state="";
       let year="";
       
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
         clickStateCount+=1;
-        console.log(clickStateCount);
+        
+        //create a stop if the clickCount is above 2
       if(clickStateCount>2){return alert('reset your query before performing another submission')}
-        //console.log("eventStarted");
-        //$('#js-search').empty();        
+        
          state=$('#stateAbbrev').val();
-         year=$('#year').val();//beginning year
-        //console.log(year)
-
-
-        
-      //console.log(clickStateCount);
-        
-        //recentSearches(state,year);        
+         year=$('#year').val();//beginning and ending year
+      
         $('#stateAbbrev').val('');
         $('#year').val('');//beginning year
-        //$('#endYear').val('');//end year        
+
         getStateReturn(state,year,clickStateCount);
     })
     
 
 }
 
-//$(searchLoad());
-
 
 //generate a stateSearch box for user to input search parameters
 function stateSearch(){
-  //console.log("stateSearch started");
+
   $('#js-load').hide();
   $('#mainBox').append(`
   <div class="col">
@@ -180,6 +137,7 @@ stateSearchLoad();
 
 }
 
+//reset function that clears the HTML and clickCount
 function resetState(){
   $('#resetButt').on('click',function(e){
     event.preventDefault();
@@ -192,6 +150,7 @@ function resetState(){
 
 }
 
+//allows the user to return to the prior screen
 function backUp(){
   $('#js-back').on('click',function(e){
     $('#mainBox').empty();
@@ -199,9 +158,9 @@ function backUp(){
   })
 }
 
-
+//ready function
 function loadSearch(){
-  //console.log("let's go");
+  
   $("#stateSearch").click(event =>{
     stateSearch();
     resetState();

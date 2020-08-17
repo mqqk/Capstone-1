@@ -1,5 +1,6 @@
 'use strict'
 //function to ensure parameters return as a string
+//function is unused in this iteration of the application b/c the parameters inputed are strings at this time
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
@@ -10,11 +11,9 @@ function formatQueryParams(params) {
 
     
 
-
-
+  //take the city, ori, year, and clickCount
+  //use the city,ori, and year to build the URL for the fetch
   function getCityReturn(city,ori,year,clickCityCount){
-    
-    //console.log("getReturn started")
    
     const requestOptions = {
         method: 'GET',
@@ -26,23 +25,20 @@ function formatQueryParams(params) {
         "ori":ori,
         "begin year":year,
     };
-    //new url /api/summarized/agencies/{ori}/offenses/{since}/{until}
+  
     const baseUrl='https://api.usa.gov/crime/fbi/sapi/api/summarized/agencies/'+ori+'/offenses/'+year+'/'+year+'?api_key='
 
-    //const queryString=formatQueryParams(params)
-    const url=baseUrl+apiKey;    
+    const url=baseUrl+apiKey;   
 
-   console.log(url);
-    
-    fetch(url, requestOptions)
-      .then(response => {
-      if(response.status===200){return response.json();
-      }else
-      alert("Invalid Department Name or Year")
-      })
-      .then(responseJson => cityValues(city,ori,year,responseJson,clickCityCount))
-      //.catch(error => console.log('error', error));
-      //return alert("incorrect abbreviation")
+      fetch(url, requestOptions)
+        .then(response => {
+          if(response.status===200){return response.json();
+          }else
+          alert("Invalid Department Name or Year")
+          })
+          //run cityValues with the carried over values of city,ori,year, and clickCount to assist in HTML building
+        .then(responseJson => cityValues(city,ori,year,responseJson,clickCityCount))
+      
     
 }
 
@@ -57,6 +53,9 @@ function cityValues(city,ori,year,responseJson,clickCityCount){
     let crimes=[];
     let reported=[];
     let solved=[];
+
+    //create the html to append the data
+    //the clickCityCount is used here to ensure separate <div>'s are created for each query
     let jsResults='js-results'+clickCityCount
 
         
@@ -69,38 +68,17 @@ function cityValues(city,ori,year,responseJson,clickCityCount){
         crimes.push(results[i].offense);
         reported.push(results[i].actual);
         solved.push(results[i].cleared);
-        //keys.push([offense])
+        
 
     }
-    console.log(crimes);
-    console.log(reported);
-    console.log(solved);
-    //console.log(offense);
-    //console.log("hi");
-    //console.log(keys);
-    //for(let i=0;i<responseJson.data.length;i++){
-      //keys.push(responseJson.data[i].key);
-      //values.push(responseJson.data[i].value);
-    
-    //}
-    //console.log('bye');
-    //console.log(keys);
+
+    //run the next function with the parsed keys and values
     displayCityResults(crimes,reported,solved,clickCityCount);
 }
 
-//dropbox function
-//will populate text box with options for crimes to search
-//function ddlselect(){
-  //const d=document.getElementById("ddselect");
-  //console.log(d);
- // const displaytext=d.options[d.selectedIndex].text;
-  //console.log(displaytext);
-  
-  //document.getElementById("txtvalue").value=displaytext;
-//}
 
 
-//combines the STORE with the parsed values
+//for loop to assign the correctly iterated values to their appropriate place in the HTML
 function displayCityResults(crimes,reported,solved,clickCityCount){
     console.log('displayCityResults')
     //console.log(STORE[0]+'-'+values[0]);
@@ -123,46 +101,30 @@ function displayCityResults(crimes,reported,solved,clickCityCount){
 
 
 let clickCityCount=0;
+//clickCityCount will keep track of the submission button so that the user is restricted to two queries and also create the appropriate html each time
 
-function checkClicks(clickCityCount){
-  if(clickCityCount>2){
-    alert('Only two queries should be displayed. Press Reset to make a new search');
-  }
-}
 function citySearchLoad(){
-    //console.log(STORE[0]);
-    console.log("searchLoad starts"); 
+     
       let city="";
       let year="";
-      //let ori="";
-      console.log("hi");
-      //checkClicks(clickCityCount);
-    
-      
-
-
-    $('#js-submit').on('click',function(event){        
+     
+      $('#js-submit').on('click',function(event){        
         event.preventDefault();
 
         clickCityCount+=1;
+        //create a stop if the clickCount is above 2
         if(clickCityCount>2){return alert('Only two queries should be displayed. Press Reset to make a new search')}
-        //console.log("eventStarted");
-        //$('#js-search').empty();        
+     
         city=$('#cityOri').val();
         year=$('#year').val();//beginning year
-        console.log(city);
-        console.log(year);
-        
-      console.log(clickCityCount);
-
-        //recentSearches(city,year);        
+      
+         
         $('#cityOri').val('');
         $('#year').val('');//beginning year
-        //$('#endYear').val('');//end year
+        
         let ori=""
+        //need ori variable for FBI API to find the data request
         ori= displayOri(ori,cityInfo,city);
-        console.log("hi" +ori);
-        console.log(year);
         
         getCityReturn(city,ori,year,clickCityCount);
     })
@@ -171,19 +133,16 @@ function citySearchLoad(){
 }
 
     
-    
+//this function takes the user input for the department and locates the corresponding ORI stored in  cityInfo.js which was pulled and stored remotely from the FBI API
 function displayOri(ori,cityInfo,agency){
-    console.log("getting ori");
-    //console.log(cityInfo[0]);
-    console.log(agency);
-    //console.log(cityInfo[0].agency_name);
+    
     let region="";
     let city="";
 
     for(let i=0;i<cityInfo.length;i++){
       if(agency===cityInfo[i].agency_name){ori=cityInfo[i].ori}
-    }
-    console.log(ori);
+      }
+    
     return (ori);
    
 };
@@ -193,7 +152,7 @@ function displayOri(ori,cityInfo,agency){
 
 //generate a citySearch box for user to input search parameters
 function citySearch(){
-  console.log("citySearch started");
+  
   $('#js-load').hide();
   $('#mainBox').append(`
   <div class="col">
@@ -221,6 +180,7 @@ citySearchLoad();
 
 }
 
+//reset function that clears the HTML and clickCount
 function resetCity(){
   $('#resetButt').on('click',function(e){
     event.preventDefault();
@@ -234,6 +194,7 @@ function resetCity(){
 
 }
 
+//allows the user to return to the prior screen
 function backUp(){
     $('#js-back').on('click',function(e){
       $('#mainBox').empty();
@@ -242,7 +203,7 @@ function backUp(){
   }
   
 
-
+//ready function
 function loadSearch(){
   //console.log("let's go");
   $("#citySearch").click(event =>{

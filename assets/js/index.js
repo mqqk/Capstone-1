@@ -4,18 +4,8 @@
 //possibly create listener for the click on the link for those above
 
 
-
-
-
-
-
-
-
-
-
-
+//function to provide key terms to DOM 
 function keyTerms(){
-    //console.log(HI);
     $('#loadOut').append(`
     <div>
     <ul id="keylist"> Key Terms List
@@ -76,13 +66,8 @@ function keyTerms(){
     })
 }
 
+//populate the html for the tools available
 function tools(){
-    //console.log('tools running');
-    
-
-    //anytime a search is made, this function hears it...
-
-
     $('#loadOut').append(`
     <div>
     <ul> Search Tools
@@ -95,7 +80,7 @@ function tools(){
 }
 
 
-//going to need a function that pulls from the an appended point probably on the other JS (search.js), max of 10?
+//unused function but a reminder that a "Recent Searches" area of the index might be useful for users
 function recentSearches(state,year){
     console.log('recentSearches is running');
 
@@ -105,12 +90,6 @@ function recentSearches(state,year){
     </div>
     `)
 }
-
-
-
-
-
-
 
 function loadUp(){
     //console.log("let's go");
