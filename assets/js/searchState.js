@@ -9,7 +9,7 @@ function formatQueryParams(params) {
 
 //take the state, year, and clickCount
 //use the state and year to build the URL for the fetch
-function getStateReturn(state, year, clickStateCount){   
+function getStateReturn(state, year){   
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -31,20 +31,26 @@ function getStateReturn(state, year, clickStateCount){
         if(response.status===200){return response.json();
         }
         else
-        {alert('Invalid State or Year:Important - Press RESET to Continue')}{clickStateCount--}
+        {alert('Invalid State or Year:Important - Press RESET to Continue')}
       })
       //run stateValues with the carried over values of state,year, and clickCount to assist in HTML building
-      .then(responseJson => stateValues(state,year,responseJson,clickStateCount))
+      .then(responseJson => stateValues(state,year,responseJson))
     
 }
 
 
 
 //this function now parses the response values to pair with the key
-function stateValues(state,year,responseJson,clickStateCount){
-
+function stateValues(state,year,responseJson){
+    
+  //determine if there is data in response, if not, return alert
+  if(responseJson.data.length===0){return alert("Sorry, but that State did not report data for that year. Try a different year.")}
     const values=[];//parsed values from the response
     const keys=[];//parsed key from the response
+    clickStateCount+=1;
+        
+        //create a stop if the clickCount is above 2
+      if(clickStateCount>2){return alert('reset your query before performing another submission')}
   
     for(let i=0;i<responseJson.data.length;i++){
       keys.push(responseJson.data[i].key);
@@ -90,10 +96,7 @@ function stateSearchLoad(){
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
         console.log(clickStateCount);
-        clickStateCount+=1;
         
-        //create a stop if the clickCount is above 2
-      if(clickStateCount>2){return alert('reset your query before performing another submission')}
         
          state=$('#stateAbbrev').val();
          year=$('#year').val();//beginning and ending year
@@ -101,7 +104,7 @@ function stateSearchLoad(){
         $('#stateAbbrev').val('');
         $('#year').val('');//beginning year
 
-        getStateReturn(state,year,clickStateCount);
+        getStateReturn(state,year);
     })
     
 
@@ -118,9 +121,9 @@ function stateSearch(){
       <h2>Search Arrest Made</h2>
       
       <form id="searchForm">
-          <label class="labelSpace">Enter State</label>
+          <label>Enter State</label>
           <input id="stateAbbrev" placeholder="e.g., NC or CA"> </input><br>
-          <label class="labelSpace">Enter Year</label>
+          <label>Enter Year</label>
           <input id="year" placeholder="year between 1960-2018"></input><br>
 
       </form>

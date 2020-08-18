@@ -174,11 +174,12 @@
   }
 
   label{
-    width:85px;
+    width: 85px;
     clear:left;
   }
   input,label{
-    float:left;
+    float: left;
+    
   }
   form label{
     font-size:16px;

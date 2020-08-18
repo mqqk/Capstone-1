@@ -13,7 +13,7 @@ function formatQueryParams(params) {
 
   //take the city, ori, year, and clickCount
   //use the city,ori, and year to build the URL for the fetch
-  function getCityReturn(city,ori,year,clickCityCount){
+  function getCityReturn(city,ori,year){
    
     const requestOptions = {
         method: 'GET',
@@ -37,7 +37,7 @@ function formatQueryParams(params) {
           alert("Invalid Department Name or Year:Important - Press RESET to Continue")
           })
           //run cityValues with the carried over values of city,ori,year, and clickCount to assist in HTML building
-        .then(responseJson => cityValues(city,ori,year,responseJson,clickCityCount))
+        .then(responseJson => cityValues(city,ori,year,responseJson))
       
     
 }
@@ -45,7 +45,15 @@ function formatQueryParams(params) {
 
 
 //this function now parses the response values to pair with the key
-function cityValues(city,ori,year,responseJson,clickCityCount){
+function cityValues(city,ori,year,responseJson){
+
+  console.log(responseJson)
+  //determine if city data is returned, if not return alert
+  if(responseJson.results.length===0){return alert("Sorry, but that Jurisdiction did not report data for that year. Try a different year.")}
+
+  clickCityCount+=1;
+  //create a stop if the clickCount is above 2
+  if(clickCityCount>2){return alert('Only two queries should be displayed. Press Reset to make a new search')}
 
     let results=responseJson.results;
     let keys=[];
@@ -108,9 +116,7 @@ function citySearchLoad(){
       $('#js-submit').on('click',function(event){        
         event.preventDefault();
 
-        clickCityCount+=1;
-        //create a stop if the clickCount is above 2
-        if(clickCityCount>2){return alert('Only two queries should be displayed. Press Reset to make a new search')}
+       
      
         city=$('#cityOri').val();
         year=$('#year').val();//beginning year
@@ -123,7 +129,7 @@ function citySearchLoad(){
         //need ori variable for FBI API to find the data request
         ori= displayOri(ori,cityInfo,city);
         
-        getCityReturn(city,ori,year,clickCityCount);
+        getCityReturn(city,ori,year);
     })
     
 
@@ -158,9 +164,9 @@ function citySearch(){
       <h2>Search Arrest Made</h2>
       
       <form id="searchForm">
-          <label id="labelSpace">Enter City</label>
+          <label>Enter City</label>
           <input id="cityOri"  placeholder="Raleigh Police Department"> </input><br>
-          <label id="labelSpace">Enter Year</label>
+          <label>Enter Year</label>
           <input id="year" placeholder="year between 1985-2014"></input><br>
 
       </form>
