@@ -118,9 +118,9 @@ function stateSearch(){
       <h2>Search Arrest Made</h2>
       
       <form id="searchForm">
-          <label>Enter State</label>
+          <label class="labelSpace">Enter State</label>
           <input id="stateAbbrev" placeholder="e.g., NC or CA"> </input><br>
-          <label>Enter Year</label>
+          <label class="labelSpace">Enter Year</label>
           <input id="year" placeholder="year between 1960-2018"></input><br>
 
       </form>

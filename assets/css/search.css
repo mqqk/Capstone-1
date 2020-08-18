@@ -173,6 +173,13 @@
     color: yellow;
   }
 
+  label{
+    width:85px;
+    clear:left;
+  }
+  input,label{
+    float:left;
+  }
   form label{
     font-size:16px;
     color:#C8F7C5;

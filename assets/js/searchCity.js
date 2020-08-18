@@ -158,9 +158,9 @@ function citySearch(){
       <h2>Search Arrest Made</h2>
       
       <form id="searchForm">
-          <label>Enter City</label>
+          <label id="labelSpace">Enter City</label>
           <input id="cityOri"  placeholder="Raleigh Police Department"> </input><br>
-          <label>Enter Year</label>
+          <label id="labelSpace">Enter Year</label>
           <input id="year" placeholder="year between 1985-2014"></input><br>
 
       </form>
