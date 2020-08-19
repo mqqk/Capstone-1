@@ -3,57 +3,58 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="#">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/> -->
-        <link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet">
+        <title>FBI Crime Stats</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+        <!-- <link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet"> -->
         <link rel="stylesheet" type="text/css" href="assets/css/index.css" />
 
     </head>
     <body>
         <header class="header">
         <h1>FBI Crime Data</h1><br>
-        <a href="https://api.data.gov/">Source</a>
-        <a href="index.html">Home</a>
+        <!-- <a href="https://api.data.gov/">Source</a> -->
+        <!-- <a href="index.html">Home</a> -->
         </header>
 
         <main>
             <section class="mainBox">
+                
                 <div class="explainBox">
-                    <h2>Resources Available</h2><br>
-                    
-                        <p>This site aims to collect information from the FBI for the user to request and view in a simple way.</p><br>
-                        <p>The user should review the Key Terms to familiarize oneself with some of the terms which may be encountered.</p>
-                        
-                    
+                    <h2>Crime Statistics from the FBI</h2><br>                
+                    <p> This Application is designed to provide you with particular categories by which to search for specific crime stats.</p>
+                    <p>An important note: not all statistics are available at all times. Depending on the jurisdiction, state, or year, the FBI may not have the statistics for a variety of reasons.</p>
                 </div>
+                                
+                <div class="explainBox">
+                    <h2>A Short History</h2>
+                    <p>Initially most reporting agencies were from large cities, and before 1957 the FBI did not aggregate data, even to the national level.</p><p> Over the years the number and types of agencies reporting crime have increased.</p><p> Every agency that reports to the UCR is assigned a unique Originating Reporting Agency Identifier or ORI.</p>
+                </div>
+               
+
                 <div class="navBox">
-                    <h2>Site Navigation</h2>
+                    <div id="nav">
+                        <h2>Before You Use Search Tools</h2>
+                        <p>Take a moment to review the key terms below and a brief description of the search tools currently available.</p>
                     
-                        <a class="contactFont" id="keyTerms" href="#">Key Terms</a>
-                        <a class="contactFont" id="tools" href="#">Tools</a>                       
-                        <a class="contactFont" href="search.html">Search Tool</a>
-                   
-                </div>
-                <div id="loadOut" class="appendedBox">
-                    <div>
-                       <h2>Short History</h2>
-                       <p>Initially most reporting agencies were from large cities, and before 1957 the FBI did not aggregate data, even to the national level.</p><br><p> Over the years the number and types of agencies reporting crime have increased.</p><br><p> Every agency that reports to the UCR is assigned a unique Originating Reporting Agency Identifier or ORI.</p>
+                        <a  id="keyTerms" href="#">Key Terms</a><br>
+                        <a  id="tools" href="#">Tools</a><br>                       
+                        <a  href="search.html">Search Tool</a>
                     </div>
+                    <div id="loadOut"></div>
+                    
                 </div>
-            </section>
-            <section class="contact">
-                <div><h3>Contact and Feedback</h3></div>
-                <div class="rightSideBox">
+
+
+            
+            <footer class="contact">
+                <div>
+                    <h3>Contact and Feedback</h3>
                     <a href="mailto: mrstyers@gmail.com?subject=feedback&body=Your Feedback Here}">Email Me</a>
-                
-                
                     <p class="contactFont">Text me at (919) 357-1805</p>
                     <p class="contactFont">Slack me at "Mick Styers"</p>
                 </div>
 
+            </footer>
             </section>
 
 
