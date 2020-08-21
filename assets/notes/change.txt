@@ -317,3 +317,510 @@ h1{
 
         ---------------------------------------------------------
         
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 1%;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    width:100%;
+    background-color: rgb(239, 237, 241);
+    background-image: url(../images/green.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+  }
+  
+
+  /* header designs */
+
+  h1{
+    font-family: Arial, Helvetica, sans-serif;    
+    font-size:34px; 
+    margin-right:7em;   
+  }
+
+  header {
+    color:#C8F7C5;
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+    margin-left: .5em;
+     
+    height:10em;
+    background-image:url(../images/goldgavel.png) ;
+    background-repeat:no-repeat;
+    background-position:left;
+  }
+
+
+
+  header p{
+    font-size:18px;
+    color:#C8F7C5;
+    display:block;
+    text-align:left;
+    margin-top: 7em;
+    margin-left: 27em;
+    word-spacing: 1em;
+  }
+
+  /* main styles */
+  main{
+    margin-top:.5em;
+    margin-bottom:.5em;
+    flex:display;
+    flex-direction:row;
+    
+    
+  }
+  .searchBox{
+    display:flex;
+    flex-direction:column;
+    width:13em;
+    height:15em;
+    background-image:url(../images/purpleback.png);
+    background-size:cover;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left:.5em;
+    margin-top:0;
+  
+  }
+
+  .introSearch{
+    display:flex;
+    flex-direction:column;
+    margin-left:.5em;
+    width:15em;
+    height:15em;
+    background-image:url(../images/purpleback.png);
+    background-size:cover;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
+  }
+
+  .col{
+    flex:display;
+    flex-direction:column;
+  }
+
+  .row{
+    flex:display;
+    flex-direction:row;
+  }
+  .resultsBox{
+    display:flex;
+    flex-direction:column;
+    width:auto;
+    height:auto;
+    background-color: grey;
+    margin-left:.5em;
+    color:#C8F7C5;
+  }
+
+  .appendedBox{
+    display:flex;
+    flex-direction:column;
+    width:35em;
+    height:15em;
+    background-color: lightseagreen;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#C8F7C5;
+    padding:.5em .5em;
+    
+  }
+
+
+  .mainBox{
+    display:flex;
+    color:#C8F7C5;
+    flex-direction:row;
+    
+    width:100%;
+    margin:auto;
+    background-image:url('#crimepic');
+  }
+  h2{
+    font-size:22px;
+    text-align:center;
+    color:#C8F7C5;
+    padding-bottom:.5em;
+  }
+
+  h4{
+    font-size:18px;
+    text-transform:uppercase;
+    text-align:left;
+    padding-left: 1em;
+  }
+
+  ul.badge li {list-style-image: url('#imageOfBadge');}
+
+  ul{
+    font-size:14px;
+    margin-left:.55em;
+    text-transform:capitalize;
+  }
+  li {
+    font-size:14px;
+    color:#C8F7C5;
+    margin-left:1em;
+    padding:.5em .5em;
+  }
+
+  a:link {
+    color: #C8F7C5;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #C8F7C5;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: red;
+  }
+  
+  /* selected link */
+  a:active {
+    color: yellow;
+  }
+
+  label{
+    width: 85px;
+    clear:left;
+  }
+  input,label{
+    float: left;
+    
+  }
+  form label{
+    font-size:16px;
+    color:#C8F7C5;
+  }
+
+  form button{
+    font-size:14px;
+    padding:.25em .25em;
+    width:5em;
+  }
+
+  .butt{
+    
+    font-size:14px;
+    margin:.25em .25em;
+    margin-left:5em;
+    padding:.25em .25em;
+    width:5em;
+  }
+
+  h3{
+    text-align:left;
+    font-size:21px;
+    color:#C8F7C5;
+    margin-left:.5em;
+  }
+  h5{
+    font-size: 21px;
+    text-align:left;
+    color:#C8F7C5;
+    margin-right:20em;
+  }
+  .contact{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    margin-top:.5em;
+    margin-left: .5em;
+    text-align: left;
+    padding:.5em 0;    
+    height:10.5em;
+    background-image:url(../images/contact2.png);
+    background-repeat:no-repeat;
+    background-position: left;
+  }
+
+  form textarea{
+    height:10em;
+    width:100%;
+    color:#C8F7C5;
+    font-size:16px;
+  
+  }
+
+  .rightSideBox{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#C8F7C5;
+    width:auto;
+    height:50px;
+    margin-top:2.5em;
+    margin-right:24em;
+    font-size:20px;
+  }
+
+
+
+  /* dropbox style */
+  .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+
+  /*  */
+
+
+
+
+
+
+
+
+
+
+
+
+  @media all and (max-width: 1024px) {
+    body {
+      color:lime;
+    }
+    header{
+      height:auto;
+      width:25em;
+      margin-left: .5em;
+    }
+    header p{
+      font-size: 16.5px;
+      margin-left:26em;
+      word-spacing:.0em;
+    }
+    h1{
+      font-size:18px;
+      margin-right:15em;}
+
+    form label{
+      font-size:14px;
+    }
+
+    .butt{
+      font-size: 12px;
+    }
+
+    h4{
+      font-size:15px;
+      color:#C8F7C5;
+      padding-right:.25em;
+    }
+    ul{
+      font-size: 15px;
+    }
+    li{
+      font-size: 12px;
+    }
+    
+  
+
+    .contact{
+      height:auto;
+      width:25em;
+      text-align:left;
+      margin-left:.5em;
+      margin-top:1em;
+      background-position: top;
+    }
+
+    p{
+      color:#C8F7C5;
+      font-size:16px;
+      padding-left:1em;
+    }
+
+    .rightSideBox{
+      font-size: 10px;
+      margin-right:0;
+    }
+    h5{
+      font-size: 23px;
+      text-align:center;
+      color:#C8F7C5;
+      margin-right:10em;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    header{
+      width:500px;
+
+    }
+    h1{
+      font-size:20px;
+      margin-right:18px;
+    }
+
+    header p{
+      margin-left:5em;
+      margin-top:8em;
+      word-spacing: 2em;
+    }
+
+    h4{
+      font-size:12px;
+      color:#C8F7C5;
+      padding-left:.5em;
+    }
+    .butt{
+      font-size:8px;
+    }
+    .introSearch{
+      margin-left: .5em;
+    }
+    .contact{
+      height:250px;
+    }
+
+  }
+
+
+  @media all and (max-width: 425px) {
+    header{
+      width:500px;
+
+    }
+    h1{
+      font-size:20px;
+      margin-right:18px;
+    }
+
+    header p{
+      margin-left:5em;
+      margin-top:8em;
+      word-spacing: 2em;
+    }
+
+    h4{
+      font-size:12px;
+      color:#C8F7C5;
+      padding-left:.5em;
+    }
+    .butt{
+      font-size:8px;
+    }
+    .introSearch{
+      margin-left: .5em;
+    }
+    .contact{
+      height:250px;
+    }
+
+  }
+
+
+
+  @media all and (max-width: 375px) {
+
+    header{
+      width:500px;
+
+    }
+    h1{
+      font-size:20px;
+      margin-right:18px;
+    }
+
+    header p{
+      margin-left:5em;
+      margin-top:8em;
+      word-spacing: 2em;
+    }
+
+    h4{
+      font-size:12px;
+      color:#C8F7C5;
+      padding-left:.5em;
+    }
+    .butt{
+      font-size:8px;
+    }
+    .introSearch{
+      margin-left: .5em;
+    }
+    .contact{
+      height:250px;
+    }
+
+  
+
+  }
+
+  @media all and (max-width: 320px) {
+
+    header{
+      width:500px;
+
+    }
+    h1{
+      font-size:20px;
+      margin-right:18px;
+    }
+
+    header p{
+      margin-left:5em;
+      margin-top:8em;
+      word-spacing: 2em;
+    }
+
+    h4{
+      font-size:12px;
+      color:#C8F7C5;
+      padding-left:.5em;
+    }
+    .butt{
+      font-size:8px;
+    }
+    .introSearch{
+      margin-left: .5em;
+    }
+    .contact{
+      height:250px;
+    }
+
+  }    
