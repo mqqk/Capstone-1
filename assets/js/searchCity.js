@@ -92,6 +92,7 @@ function cityValues(city,ori,year,responseJson){
 function displayCityResults(crimes,reported,solved,clickCityCount){
 
     let jsResults='#js-results'+clickCityCount;
+    $('#js-filler-box3').hide();
 
     for(let i=0;i<crimes.length;i++){
 
@@ -162,6 +163,7 @@ function citySearch(){
   
   
   $('#js-load').hide();
+  // $('#js-filler-box').hide();
   $('#mainBox').append(`
   <div class="col">
     <article class="searchBox col">
@@ -182,7 +184,9 @@ function citySearch(){
       <div id="js-reset-search" class="hide"><p>Only two queries allowed at a time.</p><p> Press RESET to continue.</p>
     </article>
   </div>
-
+  <div id="js-filler-box3" class="filler">
+  <img src="assets/images/ladyjustice3.png" alt="lady justice" />    
+</div>
   
   <div id="js-search" class="resultsBox"></div>
 
@@ -200,13 +204,13 @@ function resetCity(){
     
     citySearch();
     resetCity();
-    backUp();
+    backUpCity();
   })
 
 }
 
 //allows the user to return to the prior screen
-function backUp(){
+function backUpCity(){
     $('#js-back').on('click',function(e){
       $('#mainBox').empty();
       $('#js-load').show();
@@ -221,7 +225,7 @@ function loadCitySearch(){
   $("#citySearch").click(event =>{
     citySearch();
     resetCity();
-    backUp();
+    backUpCity();
   })
 }
 

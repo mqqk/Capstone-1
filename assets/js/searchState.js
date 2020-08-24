@@ -81,7 +81,7 @@ function stateValues(state,year,responseJson){
 function displayStateResults(keys,values,clickStateCount){
   
   let jsResults='#js-results'+clickStateCount;
-  
+  $('#js-filler-box2').hide();
   let i=0;
   for(;i<keys.length;i++){
   
@@ -102,10 +102,8 @@ function stateSearchLoad(){
       
     $('#js-submit').on('click',function(event){        
         event.preventDefault();
-        console.log(clickStateCount);
         
-        $("#js-bad-search").addClass('hide');
-        
+        $("#js-bad-search").addClass('hide');        
         
          state=$('#stateAbbrev').val();
          year=$('#year').val();//beginning and ending year
@@ -124,6 +122,7 @@ function stateSearchLoad(){
 function stateSearch(){
 
   $('#js-load').hide();
+  // $('#js-filler-box').hide();
   $('#mainBox').append(`
   <div class="col">
     <article class="searchBox col">
@@ -141,9 +140,11 @@ function stateSearch(){
       <button class="butt" id="js-back">Back</button>
       <div id="js-bad-search" class="hide"><p>Invalid State or Year</p></div>
       <div id="js-reset-search" class="hide"><p>Only two queries allowed at a time.</p><p> Press RESET to continue.</p>
-    </article>
-  </div>
-
+    </article>        
+    </div>
+    <div id="js-filler-box2" class="filler">
+      <img src="assets/images/ladyjustice2.png" alt="lady justice" />    
+    </div>
   
   <div id="js-search" class="resultsBox"></div>
 
@@ -167,16 +168,18 @@ function resetState(){
 
 //allows the user to return to the prior screen
 function backUp(){
+  
   $('#js-back').on('click',function(e){
+    event.preventDefault();
     $('#mainBox').empty();
     $('#js-load').show();
+    $('#js-filler-box').show();
   })
 }
 
 //ready function
 function loadStateSearch(){
-  
-  
+
   $("#stateSearch").click(event =>{
     stateSearch();
     resetState();
