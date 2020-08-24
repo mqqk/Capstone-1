@@ -40,6 +40,14 @@ header {
   margin-left:.5em;
   
 }
+
+.headerBox{
+  width:auto;
+  height:auto;
+  background-image:url(../images/purpleback.png);
+  margin-left:.25em;
+  margin-bottom:.5em;
+}
 /* main styles */
 
 main{
@@ -337,12 +345,12 @@ form textarea{
 
   header{
     background-size: 100%;
-    width:500px;
+    width:auto;
   }
 
   .contact{
     background-size: 100%;
-    width:500px;
+    width:auto;
   }
 
 
