@@ -9,7 +9,7 @@ body {
   font-weight: 400;   
   background-image: url(../images/green.jpg);
   background-size:cover;
-  width:95%;
+  width:100%;
   padding:0 .5em;
 }
 
@@ -18,59 +18,97 @@ body {
 
 h1{
   font-family: Arial, Helvetica, sans-serif;    
-  font-size:20px;
-   margin-left:.25em;
+  font-size:24px;
+   margin-left:.5em;
    color:#C8F7C5;
   }
+
+
   
 header {      
   color:#C8F7C5;
   text-align: left;
-  height:7em;
+  height:9em;
   background-image:url(../images/goldgavel.png) ;
   background-repeat:no-repeat;
   background-size: 100%;
   background-position:center;
+  margin-left:.5em;
   
+}
+/* main styles */
+
+main{
+  margin-top:.5em;
+  margin-bottom:.5em;
+  flex:display;  
+}
+
+a {
+  font-size:18px;
+}
+
+p{
+  font-size:18px;
+  color:#C8F7C5;
+}
+
+h2{
+  font-size:22px;
+  text-align:left;
+  color:#C8F7C5;
+  padding-bottom:.5em;
+  padding-left:.5em;
+}
+
+h3{
+  text-align:left;
+  font-size:20px;
+  color:#C8F7C5;
+  margin-left:1.5em;
+}
+
+
+h4{
+  font-size:18px;
+  text-transform:uppercase;
+  text-align:left;
+  padding-left: 1em;
+}
+
+h5{
+  font-size: 21px;
+  text-align:left;
+  color:#C8F7C5;
+  margin-right:20em;
 }
 
 .mainBox{
   display:flex;
   flex-direction: column;
   justify-content:space-between;
-  margin-top:.5em;  
-}
-
-
-
-
-/* main styles */
-main{
-  margin-top:.5em;
-  margin-bottom:.5em;
-  flex:display;
-  flex-direction:row;
-  
   
 }
+
 .searchBox{
   display:flex;
   flex-direction:column;
-  width:13em;
+  width:auto;
   height:15em;
   background-image:url(../images/purpleback.png);
   background-size:cover;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-left:.5em;
   margin-top:0;
+  padding-left:.5em;
 
 }
 
-.introSearch{
+.introBox{
   display:flex;
   flex-direction:column;
   margin-left:.5em;
-  width:15em;
+  width:auto;
   height:15em;
   background-image:url(../images/purpleback.png);
   background-size:cover;
@@ -93,7 +131,12 @@ main{
   height:auto;
   background-color: grey;
   margin-left:.5em;
+  margin-top:.5em;
   color:#C8F7C5;
+}
+
+.resultsBox li{
+  font-size:12px;
 }
 
 .appendedBox{
@@ -109,28 +152,7 @@ main{
 }
 
 
-.mainBox{
-  display:flex;
-  color:#C8F7C5;
-  flex-direction:row;
-  
-  width:100%;
-  margin:auto;
-  background-image:url('#crimepic');
-}
-h2{
-  font-size:22px;
-  text-align:center;
-  color:#C8F7C5;
-  padding-bottom:.5em;
-}
 
-h4{
-  font-size:18px;
-  text-transform:uppercase;
-  text-align:left;
-  padding-left: 1em;
-}
 
 ul.badge li {list-style-image: url('#imageOfBadge');}
 
@@ -142,7 +164,7 @@ ul{
 li {
   font-size:14px;
   color:#C8F7C5;
-  margin-left:1em;
+  margin-left:2em;
   padding:.5em .5em;
 }
 
@@ -173,6 +195,8 @@ input,label{
   float: left;
   
 }
+
+
 form label{
   font-size:16px;
   color:#C8F7C5;
@@ -180,47 +204,45 @@ form label{
 
 form button{
   font-size:14px;
-  padding:.25em .25em;
+  /* padding:.25em .25em; */
   width:5em;
 }
 
 .butt{
   
-  font-size:14px;
-  margin:.25em .25em;
-  margin-left:5em;
-  padding:.25em .25em;
+  font-size:12px;
+  margin:.25em;
+  /* padding:.05em; */
   width:5em;
 }
 
-h3{
-  text-align:left;
-  font-size:21px;
-  color:#C8F7C5;
-  margin-left:.5em;
-}
-h5{
-  font-size: 21px;
-  text-align:left;
-  color:#C8F7C5;
-  margin-right:20em;
-}
+
 .contact{
   display:flex;
   flex-direction:column;
-  width:100%;
+  /* width:100%; */
   margin-top:.5em;
   margin-left: .5em;
   text-align: left;
-  padding:.5em 0;    
-  height:10.5em;
+  padding:.5em .5em;    
+  height:9em;
   background-image:url(../images/contact2.png);
   background-repeat:no-repeat;
   background-position: left;
+  background-size: 100%;
+}
+
+.contact h2{
+  font-size:22px;
+  text-align:left;
+  color:#C8F7C5;
+  padding-bottom:.5em;
+  padding-left:0em;
+  
 }
 
 form textarea{
-  height:10em;
+  height:7em;
   width:100%;
   color:#C8F7C5;
   font-size:16px;
@@ -239,47 +261,89 @@ form textarea{
 
 
 
-/* dropbox style */
-.dropbtn {
-  background-color: #3498DB;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+
+@media screen and (min-width: 768px){ 
+  body {
+    font-weight: 400;   
+    background-image: url(../images/green.jpg);
+    background-size:cover;
+    width:100%;
+    padding-left:.5em;
+  }
+  
+  
+  h1{
+    font-size:30px;
+    
+  }
+
+  header{
+    background-size:100%;
+    height:14em;
+  }
+
+
+  /* main */
+
+  .mainBox{
+    flex-direction: row;
+  }
+
+  .explainBox{
+    font-size: 18px;
+  }
+
+  h2{
+    font-size: 24px;
+    padding-left:0;
+  }
+
+  .butt{
+    font-size:16px;
+    width:5em;
+    height:2em;
+    
+  }
+
+  label{
+    width:100px;
+  }
+  input{
+    width:200px;
+  }
+
+  form label{
+    font-size:18px;
+  }
+
+  
+  .resultsBox li{
+    font-size:16px;
+  }
+
+  
 }
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
 
 /*  */
+
+@media screen and (min-width: 1440px){ 
+  body{
+    width:100%;
+  }
+
+  header{
+    background-size: 100%;
+    width:500px;
+  }
+
+  .contact{
+    background-size: 100%;
+    width:500px;
+  }
+
+
+}
+
 
 
 

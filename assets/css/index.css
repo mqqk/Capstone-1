@@ -49,6 +49,7 @@
     justify-content:space-between;
     margin-top:.5em;
     
+    
   }
 
   .explainBox{
@@ -113,11 +114,13 @@
 
   .contact p{
     font-size:14px;
+    color:#C8F7C5;
   }
 
   h3 {
     font-size:18px;
     margin-top:.5em;
+    color:#C8F7C5;
     
   }
 
@@ -163,8 +166,8 @@
   }
   h1{
     font-size: 34px;
-    padding-top:2em;
-    text-align: center;
+    padding-top:5em;
+    text-align: left;
   }
 
   h2{
@@ -175,25 +178,28 @@
   }
 
   header{
-    width:50%;
+    width:800px;
     margin-top:-4em;
     margin-right:auto;
     margin-left: auto;
-    height:24em;
+    background-position:center;
+    height:17em;
   }
 
   .mainBox{
-    flex-direction: row;
+    margin-left:auto;
+    margin-right:auto;
+    width:800px;
     justify-items: space-evenly ;
+    
   }
 
   .explainBox{
-    width:33%;
-    margin-right:.5em;
+    width:auto;
   }
 
   .contact{
-    width:50%;
+    width:785px;
     margin-right: auto;
     margin-left: auto;
     height:8em;
