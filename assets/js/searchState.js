@@ -28,15 +28,22 @@ function getStateReturn(state, year){
 
     fetch(url, requestOptions)
       .then(response => {       
-        if(response.status===200){return response.json();
+        if(response.ok){return response.json();
         }
-        else
-        {alert('Invalid State or Year:Important - Press RESET to Continue')}
+        throw new Error(response.statusText);
+        
       })
       //run stateValues with the carried over values of state,year, and clickCount to assist in HTML building
       .then(responseJson => stateValues(state,year,responseJson))
+      .catch(err => {
+        
+        $("#js-bad-search").removeClass("hide")
+      })
     
 }
+
+
+// if(response.!ok)
 
 
 
@@ -50,7 +57,7 @@ function stateValues(state,year,responseJson){
     clickStateCount+=1;
         
         //create a stop if the clickCount is above 2
-      if(clickStateCount>2){return alert('reset your query before performing another submission')}
+      if(clickStateCount>2){return $("#searchForm").addClass("hide"), $("#js-reset-search").removeClass("hide")}
   
     for(let i=0;i<responseJson.data.length;i++){
       keys.push(responseJson.data[i].key);
@@ -97,6 +104,8 @@ function stateSearchLoad(){
         event.preventDefault();
         console.log(clickStateCount);
         
+        $("#js-bad-search").addClass('hide');
+        
         
          state=$('#stateAbbrev').val();
          year=$('#year').val();//beginning and ending year
@@ -117,7 +126,7 @@ function stateSearch(){
   $('#js-load').hide();
   $('#mainBox').append(`
   <div class="col">
-    <div class="searchBox col">
+    <article class="searchBox col">
       <h2>Search Arrest Made</h2>
       
       <form id="searchForm">
@@ -130,7 +139,9 @@ function stateSearch(){
       <button class="butt" type="submit" id="js-submit">Submit</button>
       <input type="reset" id="resetButt" class="butt">
       <button class="butt" id="js-back">Back</button>
-    </div>
+      <div id="js-bad-search" class="hide"><p>Invalid State or Year</p></div>
+      <div id="js-reset-search" class="hide"><p>Only two queries allowed at a time.</p><p> Press RESET to continue.</p>
+    </article>
   </div>
 
   

@@ -33,11 +33,14 @@ function formatQueryParams(params) {
       fetch(url, requestOptions)
         .then(response => {
           if(response.status===200){return response.json();
-          }else
-          alert("Invalid Department Name or Year:Important - Press RESET to Continue")
+          }
+          throw new Error(response.statusText);
           })
           //run cityValues with the carried over values of city,ori,year, and clickCount to assist in HTML building
         .then(responseJson => cityValues(city,ori,year,responseJson))
+        .catch(err =>{
+          $("#js-bad-search").removeClass("hide")
+        })
       
     
 }
@@ -49,11 +52,11 @@ function cityValues(city,ori,year,responseJson){
 
   console.log(responseJson)
   //determine if city data is returned, if not return alert
-  if(responseJson.results.length===0){return alert("Sorry, but that Jurisdiction did not report data for that year. Try a different year.")}
+  if(responseJson.results.length===0){return $("#js-empty-search").removeClass("hide")}
 
   clickCityCount+=1;
   //create a stop if the clickCount is above 2
-  if(clickCityCount>2){return alert('Only two queries should be displayed. Press Reset to make a new search')}
+  if(clickCityCount>2){return $("#searchForm").addClass("hide"), $("#js-reset-search").removeClass("hide")}
 
     let results=responseJson.results;
     let keys=[];
@@ -115,6 +118,7 @@ function citySearchLoad(){
      
       $('#js-submit').on('click',function(event){        
         event.preventDefault();
+        $("#js-empty-search").addClass("hide");
 
        
      
@@ -160,7 +164,7 @@ function citySearch(){
   $('#js-load').hide();
   $('#mainBox').append(`
   <div class="col">
-    <div class="searchBox col">
+    <article class="searchBox col">
       <h2>Search Arrest Made</h2>
       
       <form id="searchForm">
@@ -173,7 +177,10 @@ function citySearch(){
       <span><button class="butt" type="submit" id="js-submit">Submit</button></span>
       <input type="reset" id="resetButt" class="butt">
       <button class="butt" id="js-back">Back</button>
-    </div>
+      <div id="js-bad-search" class="hide"><p>Invalid State or Year</p></div>
+      <div id="js-empty-search" class="hide"><p>Sorry, but the jurisdiction did not report data that year.</p></div>
+      <div id="js-reset-search" class="hide"><p>Only two queries allowed at a time.</p><p> Press RESET to continue.</p>
+    </article>
   </div>
 
   
