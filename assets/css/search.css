@@ -172,18 +172,25 @@ h5{
 
 
 
-ul.badge li {list-style-image: url('#imageOfBadge');}
+
 
 ul{
-  font-size:14px;
-  margin-left:.55em;
+  font-size:12px;
+  /* margin-left:.55em; */
   text-transform:capitalize;
+  list-style-type: none;
 }
 li {
-  font-size:14px;
+  font-size:10px;
   color:#000;
-  margin-left:2em;
-  padding:.5em .5em;
+  margin-left:1em;
+  padding:1em;
+  padding-left:3em;
+
+  background-image:url(../images/monocle1.png);
+  list-style-position: inside;
+  background-repeat: no-repeat;
+  background-size: 10%;
 }
 
 a:link {
