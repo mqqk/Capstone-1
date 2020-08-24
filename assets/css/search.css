@@ -33,8 +33,11 @@ h1{
 header {      
   color:#000;
   text-align: left;
-  height:2em;
+  height:7em;
   background-color: lightgray ;
+  background-image:url(../images/barbed1.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
   margin-left:.5em;
   opacity: .9;
   
@@ -170,7 +173,9 @@ h5{
 }
 
 
-
+.nav ul li{
+  display: inline;
+}
 
 
 
@@ -252,6 +257,9 @@ form button{
   padding:.5em .5em;    
   height:9em;
   background-color:lightgray;
+  /* background-image:url(../images/barbed1.jpg); */
+  background-size:cover;
+  background-repeat: no-repeat;
   opacity:.9;
 
 }
@@ -293,12 +301,13 @@ form textarea{
   
   h1{
     font-size:30px;
+    text-align:center;
     
   }
 
   header{
     background-size:100%;
-    height:2em;
+    height:10em;
     width:auto;
   }
 
@@ -312,6 +321,9 @@ form textarea{
 
   .explainBox{
     font-size: 18px;
+  }
+  h1{
+    font-size:34px;
   }
 
   h2{
@@ -351,7 +363,9 @@ form textarea{
   body{
     width:100%;
   }
-
+  h1{
+    font-size:40px;
+  }
   header{
     background-size: 100%;
     width:auto;

@@ -23,14 +23,15 @@
     
   header {      
     color:#000;
-    text-align: left;
-    height:2em;
+    height:7em;
     background-color:lightgrey;
+    background-image:url(../images/barbed1.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
     opacity: .9;
     
   }
-    
-    
+
     
     
       /* main styles */
@@ -112,20 +113,36 @@
   .contact{
 
     background-color:lightgrey ;
-    padding:0 .5em;
+    padding-top:0;
+    padding-bottom:.5em;
+    padding-left:.5em;
+    padding-right:.5em;
     opacity: .9;
+    background-image:url(../images/barbed1.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
     
+    
+  }
+
+  .contact a{
+    font-size:14px;
+    margin-top:0;
+    margin-left:0.5em;
   }
 
   .contact p{
     font-size:14px;
     color:#000;
+    margin-bottom:0;
+    margin-left:.5em;
   }
 
   h3 {
     font-size:16px;
     margin-top:.5em;
-    margin-left:.5em;
+    margin-bottom:0;
+    margin-left:0em;
     color:#000;
     
   }
@@ -144,11 +161,12 @@
   
   h1{
     font-size:30px;
+    text-align:center;
     
   }
 
   header{
-    height:2em;
+    height:10em;
   }
 
 
@@ -162,16 +180,33 @@
     font-size: 24px;
   }
 
+  h3{
+    font-size:20px;
+  }
+
+  .contact{
+    width:75%;
+    margin-left:auto;
+    margin-right:auto;
+    height:10em;
+  }
+  .contact a{
+    font-size: 18px;
+  }
+
+  .contact p {
+    font-size:18px;
+  }
+
   
 }
 
 @media screen and (min-width: 1024px){
   body{
-    width:90%;
+    width:100%;
   }
   h1{
     font-size: 34px;
-    text-align: left;
   }
 
   h2{
@@ -181,12 +216,7 @@
     font-size:24px;
   }
 
-  header{
-    width:800px;
-    margin-right:auto;
-    margin-left: auto;
-    height:3em;
-  }
+
 
   .mainBox{
     margin-left:auto;
@@ -200,12 +230,7 @@
     width:auto;
   }
 
-  .contact{
-    width:785px;
-    margin-right: auto;
-    margin-left: auto;
-    height:8em;
-  }
+
   .contact a{
     font-size:18px;
   }
